@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  before_action :authenticate_admin!
   helper_method :current_user
 
   def current_user

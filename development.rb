@@ -1,0 +1,2 @@
+ENV['GOOGLE_OAUTH_CLIENT_ID'] = '644389801312-oksodol6bme5uh7fav8r4mbsdkig1k5p.apps.googleusercontent.com'
+ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
