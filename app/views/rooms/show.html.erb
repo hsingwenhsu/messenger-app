@@ -11,7 +11,7 @@
   <div class="row">
     <div class="col-3 bg-light">
       <% @rooms.each do |room| %>
-        <%= link_to room, class: 'room-link' do %>
+        <%= link_to room, class: 'room-link-sidebar' do %>
           <% active_class = (@room == room) ? 'active' : '' %>
           <div class="card no-outline mb-2 room-card <%= active_class %>">
             <div class="card-body">
@@ -27,7 +27,6 @@
     <div class="col-9">
       <% if @room.present? %>
         <div class="chat-room">
-          
           <nav class="navbar navbar-light">
             <span class="navbar-brand" href="#">
               <b><%= @room.name %></b>

@@ -11,7 +11,9 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @rooms = Room.all
-    render 'index'
+    id = params[:id]
+    @single_room = Room.find(id)
+    #render 'index'
   end
 
   # GET /rooms/new
