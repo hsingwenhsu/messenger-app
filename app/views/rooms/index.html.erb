@@ -1,12 +1,17 @@
 <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
 <div id="user-id" data-user-id="<%= current_user.id %>"></div>
 
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 rooms-sidebar">
       <div class="card no-outline">
         <div class="card-body">
+        
           <small>Logged in as</small><br>
+          
+          <%= google_sign_in_button 'Sign in with my Google account', proceed_to: create_login_url %>
+          
           <b><%= current_user.username %><br></b>
         </div>
       </div>

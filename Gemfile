@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use sqlite3 as the database for Active Record
@@ -30,6 +31,13 @@ gem 'rspec-rails', '~> 5.0.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'redis'
+
+#google login
+# gem 'omniauth'
+# gem 'dotenv-rails'
+# gem 'omniauth-google-oauth2'
+gem 'google_sign_in'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
