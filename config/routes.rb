@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :messages
   resources :rooms
-
-  root 'rooms#index'
+  resources :users
+  root 'users#index'
 
 end
