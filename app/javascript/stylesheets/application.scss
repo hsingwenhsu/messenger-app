@@ -77,6 +77,8 @@ body {
   .room-card {
     transition: background-color 0.5s ease;
     border-radius: 20px;
+    width: 200px;
+    margin: 10px;
     &:hover {
       background-color: #eeeeee;
     }
@@ -102,4 +104,87 @@ body {
 
 .rooms-sidebar {
   border-right: 1px solid #eeeeee;
+}
+
+/*css for login page*/
+.login-navbar{
+  color: white;
+  padding: 10px;
+}
+
+.main-container {
+  display: block;
+  justify-content: center;
+}
+
+.login-container{
+  justify-content: center;
+  margin: 30px;
+}
+
+.card-body .justify-content-center{
+  justify-content: center;
+}
+
+.card .card-login{
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,255,0.5) !important;
+  border-radius: 5px;
+}
+
+.card-header h3{
+  color: white;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.login_btn{
+  color: black;
+  background-color: #FFC312;
+  width: 100px;
+}
+
+.login_btn:hover{
+  color: black;
+  background-color: white;
+}
+
+/*room index page*/
+.container-room {
+  display: flex;
+  padding: 20px 20px;
+}
+
+.container-search {
+  display: block;
+  padding: 40px 0px 20px 0px;
+  background: white;
+  justify-content: center;
+  height: 100px;
+}
+
+.navbar-row {
+  display: flex;
+}
+
+.white-font{
+  color: white;
+}
+
+.search-bar {
+  width: 100%;
+  display: flex;
+}
+
+.container-add-room {
+  margin-bottom: 30px;
 }

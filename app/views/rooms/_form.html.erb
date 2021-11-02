@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="form-group mb-3">
-    <%= form.label "Add a new room" %>
+    <h3><%= form.label "Add a new room" %></h3>
     <%= form.text_field :name, class: 'form-control', placeholder: "Room name" %>
   </div>
 
-  <%= form.submit "Add", class: "btn btn-outline-primary btn-block" %>
+  <%= form.submit "Add", class: "btn btn-primary btn-block" %>
 <% end %>

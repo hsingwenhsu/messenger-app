@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :messages
   resources :rooms
-
-  root 'rooms#index'
+  resources :users
+  root 'users#index'
 
   #get '/auth/:provider/callback' => 'sessions#omniauth'
   get 'login', to: 'logins#new'
