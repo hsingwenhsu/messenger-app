@@ -27,7 +27,7 @@
 </div>
 <div class="container-room bg-light">
   <% @rooms.each do |room| %>
-    <%= link_to room, class: 'room-link' do %>
+    <%= link_to room,  class: 'room-link room-card' do %>
       <% active_class = (@room == room) ? 'active' : '' %>
       <div class="card no-outline mb-2 room-card <%= active_class %>">
         <div class="card-body">
