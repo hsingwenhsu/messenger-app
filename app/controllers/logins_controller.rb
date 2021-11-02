@@ -3,13 +3,13 @@ class LoginsController < ApplicationController
     end
   
     def create
-        #puts GoogleSignIn::Identity.new(id_token).user_id
-    #   if user = authenticate_with_google
-    #     cookies.signed[:user_id] = user.id
-    #     redirect_to user
-    #   else
-    redirect_to "http://localhost:3000/rooms", alert: 'authentication_failed'
-      #end
+      if user = authenticate_with_google
+        cookies.signed[:user_id] = user.id
+        #redirect_to user
+        redirect_to "http://localhost:3000/rooms", alert: 'authentication_succeeded'
+      else
+        redirect_to "http://localhost:3000/"
+      end
     end
   
     private
