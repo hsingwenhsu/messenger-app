@@ -5,12 +5,43 @@ body {
   }
   -ms-overflow-style: none;
 }
-
+.room-link-sidebar {
+  &:hover {
+   text-decoration: none;
+  }
+  .room-card {
+    transition: background-color 0.5s ease;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    &:hover {
+      background-color: #eeeeee;
+    }
+    &.active {
+      background-color: black;
+      .name {
+        color: white;
+      }
+      .member-count {
+        color: #e0e0e0;
+      }
+    }
+    .name {
+      font-weight: bold;
+      color: black;
+    }
+    .member-count {
+      color: #777777;
+      font-weight: light;
+    }
+  }
+}
 .chat-room {
   height: 100vh;
 
   #messages {
-    height: 100%;
+    /*height: 100%;*/
     overflow-y: scroll;
     padding-bottom: 200px;
     padding-top: 20px;
@@ -49,10 +80,10 @@ body {
   }
   .chat-box {
     position: absolute;
-    bottom: -10px;
+    /*bottom: -10px;*/
     padding: 20px;
     width: 100%;
-    margin-left: -15px;
+    /*margin-left: -15px;*/
     background-color: white;
     border-top: 1px solid #eeeeee;
     input[type=text] {
@@ -103,7 +134,7 @@ body {
 }
 
 .rooms-sidebar {
-  border-right: 1px solid #eeeeee;
+  justify-content: center;
 }
 
 /*css for login page*/
