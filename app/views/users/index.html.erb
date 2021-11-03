@@ -29,9 +29,10 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= link_to 'Show', user, :id=>['show_user'] %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', user, :id=>["show_id"+user.id.to_s] %></td>
+          puts user.id
+          <td><%= link_to 'Edit', edit_user_path(user), :id=>["edit_id"+user.id.to_s]%></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["destroy_id"+user.id.to_s]%></td>
         </tr>
       <% end %>
     </tbody>

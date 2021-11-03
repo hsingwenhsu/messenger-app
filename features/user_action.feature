@@ -10,14 +10,13 @@ Then I should go back to users page
 Scenario: Users want to delete their profile
 Given I created a user
 And I am on the users page
-When I clicked destroy
+When I clicked destroy user 1
 Then I see a message that I successfully deleted the user
-Then I should not see user on the page
 
 Scenario: Users want to update their profile
 Given I created a user
 And I am on the users page
-When I clicked edit
+When I clicked edit user 1
 Then I should see Update User
 When I clicked Update User
 Then I should see User was successfully updated.

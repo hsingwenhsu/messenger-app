@@ -14,6 +14,7 @@ RSpec.describe "Messages", type: :request do
   }
 
   before(:all) do
+    User.generate
     room = Room.create!
   end
 

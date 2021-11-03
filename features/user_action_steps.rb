@@ -8,7 +8,7 @@ And('I am on the users page') do
 
 When('I clicked show') do
     puts page.body
-    click_link('show_user') # Write code here that turns the phrase above into concrete actions
+    click_link('show_id1') # Write code here that turns the phrase above into concrete actions
 end
 
 Then('I should see edit and back') do
@@ -28,9 +28,9 @@ Then('I should go back to users page') do
  # Write code here that turns the phrase above into concrete actions
 end
 
-When('I clicked destroy') do
+When('I clicked destroy user 1') do
   
-  click_link('Destroy')
+  click_link('destroy_id1')
   # Write code here that turns the phrase above into concrete actions
 end
 
@@ -67,8 +67,8 @@ Then('I should see Username has already been taken') do
    # Write code here that turns the phrase above into concrete actions
 end
 
-When('I clicked edit') do
-  click_link('Edit') # Write code here that turns the phrase above into concrete actions
+When('I clicked edit user 1') do
+  click_link('edit_id1') # Write code here that turns the phrase above into concrete actions
 end
 
 Then('I should see Update User') do
