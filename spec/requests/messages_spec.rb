@@ -14,7 +14,8 @@ RSpec.describe "Messages", type: :request do
   }
 
   before(:all) do
-    room = Room.create!
+    User.generate()
+    Room.create()
   end
 
   describe "GET /index" do
