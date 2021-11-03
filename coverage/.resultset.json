@@ -1,7 +1,157 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/controllers/application_controller.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          8,
+          null,
+          4,
+          2,
+          null,
+          2,
+          2,
+          null,
+          null,
+          null,
+          4,
+          0,
+          0,
+          null,
+          null,
+          null,
+          4,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/helpers/messages_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/helpers/rooms_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/controllers/rooms_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          2,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/models/room.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -9,134 +159,16 @@
           null,
           1,
           2,
-          null,
-          1,
-          0,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
+          2,
+          2,
+          2,
+          2,
           null,
           null,
           null
         ]
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/helpers/messages_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/helpers/rooms_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/helpers/users_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/controllers/rooms_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/models/room.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/models/message.rb": {
         "lines": [
           1,
           1,
@@ -144,31 +176,7 @@
           null
         ]
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/models/user.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/mailers/application_mailer.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -178,17 +186,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/models/message.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/jobs/send_message_job.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/jobs/send_message_job.rb": {
         "lines": [
           0,
           0,
@@ -211,7 +209,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/jobs/application_job.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -224,7 +222,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/controllers/messages_controller.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/controllers/messages_controller.rb": {
         "lines": [
           0,
           0,
@@ -298,7 +296,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/controllers/users_controller.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/controllers/users_controller.rb": {
         "lines": [
           0,
           0,
@@ -378,7 +376,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/controllers/logins_controller.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/controllers/logins_controller.rb": {
         "lines": [
           0,
           0,
@@ -408,7 +406,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/channels/room_channel.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/channels/room_channel.rb": {
         "lines": [
           0,
           0,
@@ -423,7 +421,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/channels/application_cable/connection.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -433,7 +431,7 @@
         "branches": {
         }
       },
-      "/Users/vivi/Documents/Fall2021/EaaS/messenger-app/app/channels/application_cable/channel.rb": {
+      "/Users/linyowkuan/Desktop/CU_21Fall/Engineering as a Service/messenger-app/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -444,6 +442,10 @@
         }
       }
     },
+<<<<<<< Updated upstream
     "timestamp": 1635899142
+=======
+    "timestamp": 1635899751
+>>>>>>> Stashed changes
   }
 }
