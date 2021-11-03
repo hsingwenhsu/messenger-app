@@ -16,6 +16,7 @@ RSpec.describe "/users", type: :request do
   
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
+  puts('aasdfasd')
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -23,10 +24,12 @@ RSpec.describe "/users", type: :request do
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
   }
-
   describe "GET /index" do
     it "renders a successful response" do
+      puts('sa;lkdfja;sldkfjas;lkfjas;lkf')
       User.create! valid_attributes
+      puts('123412234')
+      puts(user_url)
       get users_url
       expect(response).to be_successful
     end
@@ -34,6 +37,7 @@ RSpec.describe "/users", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
+      puts('11111')
       user = User.create! valid_attributes
       get user_url(user)
       expect(response).to be_successful
