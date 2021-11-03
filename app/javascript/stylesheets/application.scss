@@ -45,6 +45,7 @@ body {
     overflow-y: scroll;
     padding-bottom: 200px;
     padding-top: 20px;
+    display: block;
   }
 
   .navbar {
@@ -219,3 +220,18 @@ body {
 .container-add-room {
   margin-bottom: 30px;
 }
+
+/*for message bubble*/
+.msg-controller-div {
+  display: flex;
+}
+#msg-edit {
+  color: white;
+  margin: auto;
+}
+
+#msg-delete {
+  color: white;
+  margin: auto;
+}
+

@@ -18,4 +18,4 @@ end
 Then('I should see new_room on the page') do
     page.should have_content("new_room")
      # Write code here that turns the phrase above into concrete actions
-  end
+end

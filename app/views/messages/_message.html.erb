@@ -2,9 +2,15 @@
   <div class="content-container">
     <div class="content">
       <%= message.content %>
+      <hr />
+      <div class="msg-controller-div">
+      <%= link_to 'Edit', edit_message_path(message), id: 'msg-edit' %>
+      <%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }, :id=>['msg-delete']%>
+      </div>
     </div>
     <div class="author">
       <%= message.user.username %>
     </div>
+    
   </div>
 </div>
