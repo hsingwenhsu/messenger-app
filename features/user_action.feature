@@ -31,7 +31,7 @@ Then I should see User was successfully created.
 When I clicked back
 And I clicked New User
 And I clicked create user
-Then I should see Username has already been taken
+Then I should see User was successfully created.
 
 
 

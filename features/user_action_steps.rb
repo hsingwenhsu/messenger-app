@@ -62,6 +62,7 @@ Then('I should see User was successfully created.') do
 end
 
 Then('I should see Username has already been taken') do
+  puts page.body
   page.should have_content("Username has already been taken")
    # Write code here that turns the phrase above into concrete actions
 end
@@ -76,7 +77,6 @@ Then('I should see Update User') do
 end
 
 When('I clicked Update User') do
-  puts page.body
   click_button('user_actions') # Write code here that turns the phrase above into concrete actions
 end
 
