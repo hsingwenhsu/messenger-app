@@ -1,26 +1,13 @@
-Given(/^I am on the homepage$/) do
-  visit 'http://localhost:3000/room'
+Then('I typed Hello inside the message box') do
+  fill_in 'msg_input', :with => 'Hello'
 end
 
-Given /the following rooms are created: (.*)/ do |rooms|
-  rooms.split(",").each do |room|
-    puts(room)
-  end
-  puts(page.body)
+Then('I clicked add message') do
+  click_button('msg_submit')
+  visit '/rooms/1'
+  puts page.body
 end
 
-Then /^I should see the following rooms: (.*)/ do |rooms|
-  rooms.split(",").each do |room|
-    if page.respond_to? :should
-      expect(page).to have_content(room)
-    else
-      assert expect(page).to has_content?(room)
-    end
-  end
-end
-
-Then /^I press the room of (.*)$/ do |link|
-  #find(link).click_link(link)
-  expect(page).to have_content(link)
-  click_link(class: link)
+Then('I should see message: Hello on the page') do
+  page.should have_content('Hello')
 end
