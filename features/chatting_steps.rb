@@ -1,6 +1,5 @@
-Given('I am on the home page') do
-  #pending # Write code here that turns the phrase above into concrete actions
-  visit '/rooms'
+Given(/^I am on the homepage$/) do
+  visit 'http://localhost:3000/room'
 end
 
 Given /the following rooms are created: (.*)/ do |rooms|
