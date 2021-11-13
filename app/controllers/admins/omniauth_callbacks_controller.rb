@@ -1,7 +1,18 @@
 class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    #It’s called after the user selects their Google account.
+    helper_method :google_oauth2
     def google_oauth2
       admin = Admin.from_google(from_google_params)
-  
+      puts "heyyyyyyyyyyyyyyyyyyyy"
+      @google_user = @from_google_params
+      session["devise.user_attributes"] = admin.attributes
+      puts session["devise.user_attributes"]
+      #session[:full_name] = @google_user[:full_name]
+      session[:full_name] = @auth.info.name
+      puts session[:full_name]
+      session[:auth_uid] = @google_user[:uid]
+      puts session[:full_name]
+      puts session.to_hash
       if admin.present?
         sign_out_all_scopes
         flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
@@ -12,7 +23,7 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
     end
   
-    protected
+    # protected
   
     def after_omniauth_failure_path_for(_scope)
       new_admin_session_path
@@ -22,7 +33,7 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       stored_location_for(resource_or_scope) || root_path
     end
   
-    private
+    # private
   
     def from_google_params
       @from_google_params ||= {

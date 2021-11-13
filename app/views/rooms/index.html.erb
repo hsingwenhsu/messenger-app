@@ -3,14 +3,14 @@
     
     </h1>
     <a href="#" class="navbar-link">
-      <b><%= current_user.username %><br></b>
+      <b><%= authorized_user %><br></b>
     </a>
   </div>
 </div>
 <div class="container">
 
 <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
-<div id="user-id" data-user-id="<%= current_user.id %>"></div>
+<div id="user-id" data-user-id="<%= @authorized_user_id %>"></div>
 <div class="container-search">
   <div class="input-group rounded search-bar mb-3">
     
