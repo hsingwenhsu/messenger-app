@@ -11,11 +11,12 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       puts 'session["devise.user_attributes"]'
       puts session["devise.user_attributes"]
       #session[:full_name] = @google_user[:full_name]
-      session[:full_name] = @auth.info.name
-      puts session[:full_name]
-      session[:auth_uid] = @google_user[:uid]
-      puts session[:full_name]
-      puts session.to_hash
+      #session[:full_name] = @auth.info.name
+      session[:email] = @auth.info.email
+      puts session[:email]
+      # session[:auth_uid] = @google_user[:uid]
+      # puts session[:full_name]
+      # puts session.to_hash
       if admin.present?
         sign_out_all_scopes
         flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
