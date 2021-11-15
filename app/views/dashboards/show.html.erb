@@ -15,6 +15,8 @@
                     <h4>Current User: 
                     <%= current_admin.full_name%>
                     </h4>
+                    <div><%= link_to "Go To Dashboard", "rooms"%></div>
+                    <br/>
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                 </div>
             </div>
