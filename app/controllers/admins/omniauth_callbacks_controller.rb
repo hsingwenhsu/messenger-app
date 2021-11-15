@@ -1,11 +1,14 @@
 class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     #It’s called after the user selects their Google account.
     helper_method :google_oauth2
+    helper_method :google_user
+    helper_method :current_admin
     def google_oauth2
       admin = Admin.from_google(from_google_params)
-      puts "heyyyyyyyyyyyyyyyyyyyy"
       @google_user = @from_google_params
+      puts 'callback controller'
       session["devise.user_attributes"] = admin.attributes
+      puts 'session["devise.user_attributes"]'
       puts session["devise.user_attributes"]
       #session[:full_name] = @google_user[:full_name]
       session[:full_name] = @auth.info.name
@@ -22,7 +25,10 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to new_admin_session_path
       end
     end
-  
+    
+    def current_admin
+      @current_admin || Admin.find(session[:auth_uid])
+    end
     # protected
   
     def after_omniauth_failure_path_for(_scope)

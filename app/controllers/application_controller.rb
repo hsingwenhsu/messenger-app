@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
       @current_user = User.find_by(id: session[:user_id])
     else
       puts "Generating User!!!!"
+      puts "Check if we have admin"
+      puts session[:full_name]
       @current_user = User.generate
       session[:user_id] = @current_user.id
       @current_user
@@ -30,9 +32,10 @@ class ApplicationController < ActionController::Base
 
     # @authorized_user = Admin.find_by(full_name: session[:full_name])
     @authorized_user = session["devise.user_attributes"]
+    puts 'authorized user'
     puts @authorized_user
     puts session[:full_name].nil?
-    puts "heyyyyyyyyyyyy!"
+    puts 'session[:user_id]'
     puts session[:user_id]
     @authorized_user_id = session[:auth_uid] 
     puts @authorized_user
