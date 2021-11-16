@@ -10,7 +10,7 @@
 <div class="container">
 
 <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
-<div id="user-id" data-user-id="<%= @authorized_user_id %>"></div>
+<div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
 <div class="container-search">
   <div class="input-group rounded search-bar mb-3">
     

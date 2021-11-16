@@ -27,41 +27,4 @@ class ApplicationController < ActionController::Base
 
     @current_user
   end
-
-  # def current_admin
-  #   return @current_admin if @current_admin.present?
-  #   if session[:auth_id].present?
-  #     puts "auth id present in session"
-  #     @current_admin = Admin.find_by(uid: session[:auth_id])
-  #   else
-  #     puts 'whysdfjasdifjasdjfl'
-  #   end
-  #   @current_admin
-  #   # @authorized_user = Admin.find_by(full_name: session[:full_name])
-  #   # @authorized_user = session["devise.user_attributes"]
-  #   # puts 'authorized user'
-  #   # puts @authorized_user
-  #   # puts session[:full_name].nil?
-  #   # puts 'session[:user_id]'
-  #   # puts session[:user_id]
-  #   # @authorized_user_id = session[:auth_uid] 
-  #   # puts @authorized_user
-  #   # puts session.to_hash
-  #   # # else
-  #   #   @current_user = User.generate
-  #   #   session[:user_id] = @current_user.id
-  #   #   @current_user
-  #   # end
-
-  #   # if @current_user.nil?
-  #   #   @current_user = User.generate
-  #   #   session[:user_id] = @current_user.id
-  #   #   @current_user
-
-  #   #return @authorized_user
-  # # end
-
-  # end
-
-
 end

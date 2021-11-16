@@ -1,11 +1,11 @@
 <div class="message mb-2 <%= 'me' if message.admin == current_admin %>">
-  <%= message.admin %>
+  
   <div class="content-container">
     <div class="content">
       <%= message.content %>
     </div>
     <div class="author">
-      <%= message.admin.inspect %>
+      <%= message.admin.full_name%>
     </div>
   </div>
 </div>

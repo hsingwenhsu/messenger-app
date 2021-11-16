@@ -9,23 +9,13 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       
       admin = Admin.from_google(from_google_params)
       session[:full_name] = @auth.info.name
-      puts session[:full_name]
       @current_user = User.create(username: session[:full_name])
-      puts 'new user'
-      puts @current_user.username
       session[:user_id] = @current_user.id
-      puts session[:user_id]
-
       @google_user = @from_google_params
-      puts 'callback controller'
       session["devise.user_attributes"] = admin.attributes
-      puts 'session["devise.user_attributes"]'
-      puts session["devise.user_attributes"]
-      #session[:full_name] = @google_user[:full_name]
       
       session[:auth_uid] = @google_user[:uid]
-      puts session[:full_name]
-      puts session.to_hash
+      
       if admin.present?
         sign_out_all_scopes
         flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
@@ -35,15 +25,7 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to new_admin_session_path
       end
     end
-    
-    # def current_admin
-    #   @current_admin || Admin.find(session[:auth_uid])
-    #   #@current_admin || User.find(session[:user_id])
-    # end
-
-    def current_user
-      @current_user || User.find(session[:user_id])
-    end
+   
     # protected
   
     def after_omniauth_failure_path_for(_scope)
