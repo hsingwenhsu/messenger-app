@@ -1,13 +1,14 @@
 <div class="navbar navbar-dark bg-dark shadow-sm ">
     <h1 class="navbar-right white-font">Suffer Together</h1>
     <a href="#" class="navbar-link">
-      <b class="white-font"><%= current_user.username %><br></b>
+
+      <b class="white-font"><%= current_admin.email %><br></b>
     </a>
   </div>
 </div>
 <div class="container">
   <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
-  <div id="user-id" data-user-id="<%= current_user.id %>"></div>
+  
   <div class="row">
     <div class="col-3 bg-light">
       <% @rooms.each do |room| %>
@@ -17,7 +18,7 @@
             <div class="card-body">
               <span class='name'><%= room.name %></span><br>
               <span class='member-count'>
-                <small><%= room.users.uniq.count %> Members</small>
+                
               </span>
             </div>
           </div>
@@ -31,7 +32,7 @@
             <span class="navbar-brand" href="#">
               <b><%= @room.name %></b>
             </span>
-            <small><%= @room.users.uniq.count %> Members</small>
+           
           </nav>
           <div id="messages">
             <% @room.messages.each do |message| %>
