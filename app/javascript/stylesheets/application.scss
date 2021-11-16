@@ -38,7 +38,6 @@ body {
   }
 }
 .chat-room {
-  height: 100vh;
 
   #messages {
     /*height: 100%;*/
@@ -249,3 +248,9 @@ body {
   padding: 20px;
 }
 
+// style for individual rooms
+.course-col{
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 300px;
+}

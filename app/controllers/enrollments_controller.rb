@@ -3,6 +3,7 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments
   # GET /enrollments.json
+  helper_method :enrollments
   def index
     @enrollments = Enrollment.all
   end

@@ -7,7 +7,15 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  # GET /rooms/1
+  # def search
+  #   if params[:search].blank?
+  #     @rooms = Room.all
+  #   else
+  #     @search_param = params[:search].downcase
+  #     @rooms = Room.all.where("lower(name) LIKE :search", search: "%#{@search_param}")
+  #   end
+  # end
+    # GET /rooms/1
   # GET /rooms/1.json
   def show
     @rooms = Room.all
