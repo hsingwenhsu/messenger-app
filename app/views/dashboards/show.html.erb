@@ -8,17 +8,54 @@
   </div>
 </div>
 <div class="container">
-    <div class="row">
+    <%
+=begin%>
+ <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 max-auto">
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
                     <h4>Current User: 
                     <%= current_admin.full_name%>
                     </h4>
-                    <div><%= link_to "Go To Dashboard", "rooms"%></div>
+                    <div><%= link_to "Go To Main Page", "rooms"%></div>
                     <br/>
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                 </div>
+            </div>
+        </div>
+    </div> 
+<%
+=end%>
+    <div class="row">
+        <div class="col-3 bg-light">
+            <div>
+                <% [1,2,3].each do |idx| %>
+                <div class="card-body">
+                    <div class="card no-outline mb-2 room-card">
+                    <div class="card-body">
+                        <span class='name'>Event <%= idx %></span><br>
+                        <span class='member-count'>
+                        <small>content</small>
+                        </span>
+                    </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-3">
+            <div>
+                <% [1,2,3].each do |room| %>
+                    <% active_class = '' %>
+                    <div class="card no-outline mb-2 room-card <%= active_class %>">
+                        <div class="card-body">
+                        <span class='name'>Room name</span><br>
+                        <span class='member-count'>
+                            <small> 5 Members</small>
+                        </span>
+                        </div>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>

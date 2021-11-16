@@ -10,7 +10,9 @@
   <div id="user-id" data-user-id="<%= current_user.id %>"></div>
   <div class="row">
     <div class="col-3 bg-light">
-      <% @rooms.each do |room| %>
+      <%
+=begin%>
+ <% @rooms.each do |room| %>
         <%= link_to room, class: 'room-link-sidebar' do %>
           <% active_class = (@room == room) ? 'active' : '' %>
           <div class="card no-outline mb-2 room-card <%= active_class %>">
@@ -22,7 +24,38 @@
             </div>
           </div>
         <% end %>
-      <% end %>
+      <% end %> 
+<%
+=end%>
+      <div>
+        <% [1,2,3].each do |idx| %>
+          <div class="card-body">
+            <div class="card no-outline mb-2 room-card">
+              <div class="card-body">
+                <span class='name'>Post <%= idx %></span><br>
+                <span class='member-count'>
+                  <small>content</small>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <hr size="8" width="90%" class="mt-20 mb-20">
+      <div>
+        <% [1,2].each do |idx| %>
+          <div class="card-body">
+            <div class="card no-outline mb-2 room-card">
+              <div class="card-body">
+                <span class='name'>Event <%= idx %></span><br>
+                <span class='member-count'>
+                  <small>content</small>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="col-9">
       <% if @room.present? %>
