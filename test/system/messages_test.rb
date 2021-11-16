@@ -17,6 +17,7 @@ class MessagesTest < ApplicationSystemTestCase
     fill_in "Content", with: @message.content
     fill_in "Room", with: @message.room_id
     fill_in "User", with: @message.user_id
+    fill_in "Admin", with: @message.admin_id
     click_on "Create Message"
 
     assert_text "Message was successfully created"
@@ -30,6 +31,7 @@ class MessagesTest < ApplicationSystemTestCase
     fill_in "Content", with: @message.content
     fill_in "Room", with: @message.room_id
     fill_in "User", with: @message.user_id
+    fill_in "Admin", with: @message.admin_id
     click_on "Update Message"
 
     assert_text "Message was successfully updated"

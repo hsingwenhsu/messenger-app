@@ -25,7 +25,8 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-    @message.user = current_user
+    # @message.user = current_user
+    @message.admin = current_admin
     @message.save
 
     SendMessageJob.perform_later(@message)
@@ -63,6 +64,7 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:content, :user_id, :room_id)
+      #params.require(:message).permit(:content, :user_id, :room_id)
+      params.require(:message).permit(:content, :admin_id, :room_id)
     end
 end
