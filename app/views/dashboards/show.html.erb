@@ -8,7 +8,7 @@
     <div class="navbar-right"> 
         <h6 style="margin-right: 30px;color:white">
         Who is suffering?  &nbsp
-        <%= current_admin.full_name %>!
+        <%= link_to current_admin.full_name, '/enrollments'%>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
         <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
@@ -16,7 +16,14 @@
     </div>
 </nav>
 
-<div class="container bg-light">
+<div class="container container-signin bg-light">
     
+    <div class="card p-3 m-3" style="border: none">
+        <h3><%= link_to "Dashboard", '/enrollments'%></h3>
+    </div>
+    <div class="card p-3 m-3" style="border: none">
+        <h3><%= link_to "View Rooms", '/rooms' %></h3>
+    </div> 
+
 </div>
 

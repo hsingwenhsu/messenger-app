@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
+    <div class="container-fluid">
+    <h1 class="navbar-left white-font">
+        Suffer Together!
+    </h1>
+    
+        
+    <div class="navbar-right"> 
+        <h6 style="margin-right: 30px;color:white">
+        Who is suffering?  &nbsp
+        <%= link_to current_admin.full_name, '/enrollments'%>
+        </h6>
+        <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
+        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+    </div>
+    </div>
+</nav>
+
+
+<div class="container container-dashboard bg-light">
+  <div class="row mb-3">
+  <% @enrollments.each do |enrollment| %>
+  <% if enrollment.admin_id==current_admin.id%>
+    <div class="col-4 p-2">
+      <div class="card card-enrollment" style="border:none">
+        <div class="p-3 ">
+          <h3 class="mb-3">
+            <%= Room.where({id: enrollment.room_id}).first.name %>
+          </h3>
+          <button class="btn btn-outline-primary">
+            <%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </button>
+          <button class="btn btn-outline-primary">
+            <%= link_to 'Edit', edit_enrollment_path(enrollment) %>
+          </button>
+          <button class="btn btn-outline-primary">
+            <%= link_to 'Show', enrollment %>
+          </button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+  </div>
+</div>
+
+
+<%= link_to 'New Enrollment', new_enrollment_path, :style =>'display:none;'%>
+

@@ -1,0 +1,17 @@
+<%= form_with(model: enrollment, local: true) do |form| %>
+  <% if enrollment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
+
+      <ul>
+        <% enrollment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=form.hidden_field :room_id, value: room.id%>
+  <div class="actions" style="text-align: center; margin: 10px">
+    <%= form.submit "Add Course", class: "btn btn-outline-primary"%>
+  </div>
+<% end %>

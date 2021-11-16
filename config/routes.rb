@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :rooms
   resources :users
+  resources :enrollments
   #root 'users#index'
 
 end

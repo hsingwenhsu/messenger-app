@@ -15,7 +15,7 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container container-room-page">
 
 <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
 <div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
@@ -34,20 +34,31 @@
   <%= render 'form', room: Room.new %>
 </div>
 <div class="container-room bg-light">
+  <div class="row">
   <% @rooms.each do |room| %>
-    <%= link_to room,  class: 'room-link room-card' do %>
-      <% active_class = (@room == room) ? 'active' : '' %>
-      <div class="card no-outline mb-2 room-card <%= active_class %>">
-        <div class="card-body">
-          <span class='name'><%= room.name %></span><br>
-          <span class='member-count'>
+    
+      <div class="col" style="margin: 10px; width: 300px">
+        <div class="card no-outline mb-2 room-card">
+          <div class="card-body" style="text-align: center">
+            <div class='name'>
+              <h4 style="margin: 0px">
+                <%= link_to room, class: 'room-link room-card' do %>
+                  <%= room.name %>
+                  <% active_class = (@room == room) ? 'active' : '' %>
+                <% end %>
+              </h4>
+            </div>
             
-          </span>
+            <div style="padding: 10px; justify-content: center">
+              <%= render 'enrollments/form', enrollment: Enrollment.new, room: room, admin: current_admin%>
+            </div>
+          </div>
         </div>
       </div>
-    <% end %>
+    
   <% end %>
+  </div>
 </div>
 
 
-</div>
+
