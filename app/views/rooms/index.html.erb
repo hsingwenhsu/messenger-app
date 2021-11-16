@@ -1,12 +1,20 @@
-<div class="navbar navbar-dark bg-dark shadow-sm ">
-    <h1 class="navbar-right white-font">Suffer Together
-    
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
+    <div class="container-fluid">
+    <h1 class="navbar-left white-font">
+        Suffer Together!
     </h1>
-    <a href="#" class="navbar-link">
-      <b><%= current_admin.full_name %><br></b>
-    </a>
-  </div>
-</div>
+    
+        
+    <div class="navbar-right"> 
+        <h6 style="margin-right: 30px;color:white">
+        Who is suffering?  &nbsp
+        <%= current_admin.full_name %>!
+        </h6>
+        <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
+    </div>
+    </div>
+</nav>
+
 <div class="container">
 
 <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
