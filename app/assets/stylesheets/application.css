@@ -12,10 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require material_icons
  */
 
- .login_card {
-     justify-content: center;
- }
+ @import "materialize/components/icons-material-design";
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+}
 
  

@@ -1,27 +1,31 @@
+<%= stylesheet_link_tag 'application.css' %>
 <div class="navbar navbar-dark bg-dark shadow-sm ">
-    <h1 class="navbar-right white-font">Suffer Together
-    
+    <h1 class="navbar-right white-font">Suffer Together   
     </h1>
   </div>
 </div>
-<div class="container">
+<body>
+  <div class="container">
     <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 max-auto">
-            <div class="card border-0 shadow rounded-3 my-5">
-                <div class="card-title text-center p-4 mb-0">
-                    <h4 >Sign In</h4>
-                </div>
-                <div class="card-body p-3 p-sm-5 login-card">
-                    <button class="btn btn-secondary">
-                        <h4 style="color:white">
-                        <%= link_to "Sign in with Google", 
-                            admin_google_oauth2_omniauth_authorize_path,  method: :post %>
-                        </h4>
-                    </button>
-                    
-                </div>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h3 class="card-title text-center mb-5 fw-light fs-5">Let's suffer!</h3>
+            <div class="d-grid text-center">   
+                <button class="btn btn-outline-primary btn-lg btn-login text-uppercase fw-bold">
+                <img src="https://img.icons8.com/color/20/000000/google-logo.png">
+                <%= link_to "Sign in with Google", 
+                    admin_google_oauth2_omniauth_authorize_path,  method: :post%>
+                
+                </button>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+</body>
+
+
+
 
