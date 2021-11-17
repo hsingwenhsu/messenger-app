@@ -5,17 +5,29 @@ RSpec.describe "Messages", type: :request do
   #   pending "add some examples (or delete) #{__FILE__}"
   # end
 
+  # OmniAuth.config.test_mode = true
+  # OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+  #   :uid => '123545'
+  #   # etc.
+  # })
+
   let(:valid_attributes) {
-    {:content => 'hi', :user_id => 1, :room_id => 1}
+    {:content => 'hi', :admin_id => 1, :room_id => 1}
   }
 
   let(:invalid_attributes) {
-    {:content => 'hi', :user_id => 1000, :room_id => 1000}
+    {:content => 'hi', :admin_id => 1000, :room_id => 1000}
   }
 
   before(:all) do
     User.generate
     room = Room.create!
+    Admin.from_google({
+      uid: '1111',
+      email: 'test@columbia.edu',
+      full_name: 'test_name',
+      avatar_url: 'test_url'
+    })
   end
 
   describe "GET /index" do

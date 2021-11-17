@@ -25,7 +25,9 @@
       <div class="card card-enrollment" style="border:none">
         <div class="p-3 ">
           <h3 class="mb-3">
-            <%= Room.where({id: enrollment.room_id}).first.name %>
+            <%= link_to Room.where({id: enrollment.room_id}).first , class: 'room-link room-card' do %>
+              <%= Room.where({id: enrollment.room_id}).first.name %>
+            <% end %>
           </h3>
           <button class="btn btn-outline-primary">
             <%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %>

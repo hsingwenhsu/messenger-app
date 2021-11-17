@@ -17,8 +17,6 @@
 
 <div class="container container-room-page">
 
-<div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
-<div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
 <div class="container-search">
   <div class="input-group rounded search-bar mb-3">
     
@@ -34,6 +32,9 @@
   <%= render 'form', room: Room.new %>
 </div>
 <div class="container-room bg-light">
+  <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
+  <div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
+
   <div class="row">
   <% @rooms.each do |room| %>
     
