@@ -5,12 +5,20 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
     def google_oauth2
       admin = Admin.from_google(from_google_params)
-      session[:full_name] = @auth.info.name
-      @google_user = @from_google_params
-      session["devise.user_attributes"] = admin.attributes
-      
-      session[:auth_uid] = @google_user[:uid]
-      
+      # session[:full_name] = @auth.info.name
+      # @google_user = @from_google_params
+      # session["devise.user_attributes"] = admin.attributes
+      # puts 'session["devise.user_attributes"]'
+      # puts session["devise.user_attributes"]
+      #puts "current_admin heeeeeerrrrrere"
+
+      #session[:full_name] = @google_user[:full_name]
+      #session[:full_name] = @auth.info.name
+      # session[:email] = @auth.info.email
+      # puts session[:email]
+      # session[:auth_uid] = @google_user[:uid]
+      # puts session[:full_name]
+      # puts session.to_hash
       if admin.present?
         sign_out_all_scopes
         flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
@@ -34,12 +42,7 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # private
   
     def from_google_params
-      @from_google_params ||= {
-        uid: auth.uid,
-        email: auth.info.email,
-        full_name: auth.info.name,
-        avatar_url: auth.info.image
-      }
+      @from_google_params ||= {uid: auth.uid, email: auth.info.email, full_name: auth.info.name,avatar_url: auth.info.image}
     end
   
     def auth

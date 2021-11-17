@@ -8,7 +8,7 @@
     <div class="navbar-right"> 
         <h6 style="margin-right: 30px;color:white">
         Who is suffering?  &nbsp
-        <%= link_to current_admin.full_name, '/enrollments'%>
+        <%=  link_to current_admin.full_name, '/enrollments'%>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
     </div>
@@ -45,13 +45,14 @@
               <h4 style="margin: 0px">
                 <%= link_to room, class: 'room-link room-card' do %>
                   <%= room.name %>
+
                   <% active_class = (@room == room) ? 'active' : '' %>
                 <% end %>
               </h4>
             </div>
             
             <div style="padding: 10px; justify-content: center">
-              <%= render 'enrollments/form', enrollment: Enrollment.new, room: room, admin: current_admin%>
+              <%= render 'enrollments/form', enrollment: Enrollment.new, room: room %>
             </div>
           </div>
         </div>
