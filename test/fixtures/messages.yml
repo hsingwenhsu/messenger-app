@@ -2,10 +2,10 @@
 
 one:
   content: MyText
-  user: one
+  admin: one
   room: one
 
 two:
   content: MyText
-  user: two
+  admin: two
   room: two

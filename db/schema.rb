@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_11_16_070254) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
     t.string "full_name"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_070254) do
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.integer "admin_id", null: false
-    t.integer "room_id", null: false
+    t.integer "admin_id"
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_id"], name: "index_enrollments_on_admin_id"
@@ -33,11 +36,9 @@ ActiveRecord::Schema.define(version: 2021_11_16_070254) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.integer "room_id", null: false
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "admin_id"
-    t.index ["admin_id"], name: "index_messages_on_admin_id"
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
@@ -47,13 +48,4 @@ ActiveRecord::Schema.define(version: 2021_11_16_070254) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "enrollments", "admins"
-  add_foreign_key "enrollments", "rooms"
-  add_foreign_key "messages", "rooms"
 end
