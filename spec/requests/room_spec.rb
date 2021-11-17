@@ -11,7 +11,7 @@ RSpec.describe "Rooms", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       room = Room.new
-      get rooms_url(room)
+      get room_url(room)
       expect(response).to be_successful
     end
   end

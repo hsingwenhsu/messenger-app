@@ -1,21 +1,44 @@
 require 'rails_helper'
+include Warden::Test::Helpers
 
 RSpec.describe "Messages", type: :request do
   # describe "GET /index" do
   #   pending "add some examples (or delete) #{__FILE__}"
   # end
 
+
+
   let(:valid_attributes) {
-    {:content => 'hi', :user_id => 1, :room_id => 1}
+    {:content => 'hi', :admin_id => 1, :room_id => 1}
   }
 
   let(:invalid_attributes) {
-    {:content => 'hi', :user_id => 1000, :room_id => 1000}
+    {:content => 'hi', :admin_id => 1000, :room_id => 1000}
   }
 
   before(:all) do
-    User.generate
+    # User.generate
     room = Room.create!
+    # Admin.from_google({
+    #   uid: '1111',
+    #   email: 'test@columbia.edu',
+    #   full_name: 'test_name',
+    #   avatar_url: 'test_url'
+    # })
+    # OmniAuth.config.test_mode = true
+    # OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+    #   :uid => '1111',
+    #   :email => 'test@columbia.edu',
+    #   :full_name => 'test_name',
+    #   :avatar_url => 'test_url'
+    #   # etc.
+    # })
+    admin = Admin.create!(:uid => "111101028321895", :email => '2@columbia.edu', :full_name => 'Test')
+    # user = Admin.find_by(uid: "111101028321895")
+    login_as(admin, :scope => :admin)
+    current_admin = admin
+    # puts 12341234
+
   end
 
   describe "GET /index" do
