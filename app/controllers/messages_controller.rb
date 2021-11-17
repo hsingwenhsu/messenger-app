@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
     @message.save
 
     SendMessageJob.perform_later(@message)
-    redirect_back fallback_location: "/rooms/#{@message.room_id}"
+    # redirect_back fallback_location: "/rooms/#{@message.room_id}"
   end
 
   # PATCH/PUT /messages/1
