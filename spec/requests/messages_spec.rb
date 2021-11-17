@@ -145,12 +145,6 @@ RSpec.describe "Messages", type: :request do
         delete message_url(message)
       }.to change(Message, :count).by(-1)
     end
-
-    it "redirects to the messages list" do
-      message = Message.create!(valid_attributes)
-      delete message_url(message)
-      expect(response).to redirect_to('/messages')
-    end
   end
 
 
