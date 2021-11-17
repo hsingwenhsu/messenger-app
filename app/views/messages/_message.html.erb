@@ -6,6 +6,7 @@
     </div>
     <div class="author">
       <%= message.admin.full_name%>
+      <%= link_to 'Delete' , message, method: :delete, data: {confirm: 'Delete message?'}, id: message.id%>
     </div>
   </div>
 </div>
