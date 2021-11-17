@@ -14,6 +14,6 @@
   <%= form.hidden_field :admin_id, value: current_admin.id %>
   <%= form.hidden_field :room_id, value: room.id %>
   <div class="actions" style="text-align: center; margin: 10px">
-    <%= form.submit "Add Course", class: "btn btn-outline-primary"%>
+    <%= form.submit "Add Course", class: "btn btn-outline-primary", :id=>["create_enrollment"+room.id.to_s]%>
   </div>
 <% end %>

@@ -14,9 +14,3 @@ And I clicked Add
 Then I should enter the chat room with 1122
 
 
-Given I am on the room page
-And I clicked delete new_room
-Then I should not see new_room on rooms page
-
-
-

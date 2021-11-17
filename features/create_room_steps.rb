@@ -45,10 +45,10 @@ Then('I should enter the chat room with {int}') do |int|
     page.should have_content(int) # Write code here that turns the phrase above into concrete actions
   end
 
-Given('I clicked delete new_room') do
-  click_link('destroy_room1')
-end
+# Given('I clicked delete new_room') do
+#   click_link('destroy_room1')
+# end
 
-Then('I should not see new_room on rooms page') do
-  page.should have_no_content("new_room")
-end
+# Then('I should not see new_room on rooms page') do
+#   page.should have_no_content("new_room")
+# end
