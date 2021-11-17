@@ -1,10 +1,13 @@
-
 Given('I am on the home page') do
     visit '/rooms'
-  end
-Given('I have loggedin') do
-  pending # Write code here that turns the phrase above into concrete actions
 end
+
+And('I have logged in') do
+  admin = Admin.create!(:uid => "111101028321893", :email => 'hfuhroi@columbia.edu', :full_name => 'Test')
+  login_as(admin, :scope => :admin)
+  visit '/rooms'
+end
+
 When('I typed new_room inside add room section') do
     fill_in 'room_name_id', :with => 'new_room'  # Write code here that turns the phrase above into concrete actions
 end

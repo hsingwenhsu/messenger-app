@@ -11,16 +11,6 @@ When('I sign in with valid credentials') do
     user = Admin.find_by(uid: "111101028321893")
 
     puts user.full_name
-    # puts user.nil?
-    # puts user.full_name
-    # admin = Admin.from_google({
-    #     uid: '1111',
-    #     email: 'test@columbia.edu',
-    #     full_name: 'test_name',
-    #     avatar_url: 'test_url'
-    #   }) 
-      #sign_in_and_redirect admin, event: :authentication
-      # Write code here that turns the phrase above into concrete actions
   end
 
 Then('I see a successful sign in message') do
@@ -36,5 +26,6 @@ When('I return to the site') do
      # Write code here that turns the phrase above into concrete actions
   end
 Then('I should be signed in') do
+    page.should have_content("Test") 
  # Write code here that turns the phrase above into concrete actions
 end
