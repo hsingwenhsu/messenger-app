@@ -21,9 +21,12 @@ document.addEventListener('turbolinks:load', () => {
     },
 
     received(data) {
-      const user_element = document.getElementById('user-id');
+      console.log('data', data);
+      // const user_element = document.getElementById('user-id');
+      const admin_element = document.getElementById('admin-id');
       // const user_id = Number(user_element.getAttribute('data-user-id'));
       const admin_id = Number(admin_element.getAttribute('data-admin-id'));
+      console.log('room channle js admin', admin_id)
       let html;
 
       if (admin_id === data.message.admin_id) {
@@ -36,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
       } else {
         html = data.theirs
       }*/
-
+      console.log('room_channel js line 41')
 
       const messageContainer = document.getElementById('messages')
       messageContainer.innerHTML = messageContainer.innerHTML + html
