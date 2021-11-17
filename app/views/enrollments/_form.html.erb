@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-  <%=form.hidden_field :room_id, value: room.id%>
+  
+  <%= form.hidden_field :admin_id, value: current_admin.id %>
+  <%= form.hidden_field :room_id, value: room.id %>
   <div class="actions" style="text-align: center; margin: 10px">
     <%= form.submit "Add Course", class: "btn btn-outline-primary"%>
   </div>
