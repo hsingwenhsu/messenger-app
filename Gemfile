@@ -37,6 +37,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'redis'
 
+# for icon in view
+# gem 'material_icons'
+# gem 'materialize-sass'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -52,7 +56,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
+gem 'capybara', '>= 2.15'
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
@@ -68,4 +72,5 @@ group :test do
   gem 'cucumber-rails', require: false
   # database_cleaner is not mandatory, but highly recommended
   gem 'database_cleaner'
+  gem 'simplecov'
 end

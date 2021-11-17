@@ -11,7 +11,7 @@ body {
   }
   .room-card {
     transition: background-color 0.5s ease;
-    border-radius: 20px;
+    border-radius: 25px;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -38,7 +38,6 @@ body {
   }
 }
 .chat-room {
-  height: 100vh;
 
   #messages {
     /*height: 100%;*/
@@ -157,6 +156,12 @@ body {
   justify-content: center;
 }
 
+.card .room-card{
+  margin: 10px;
+  border-radius: 20px;
+  display: block;
+}
+
 .card .card-login{
   height: 370px;
   margin-top: auto;
@@ -191,10 +196,14 @@ body {
 
 /*room index page*/
 .container-room {
-  display: flex;
+  display: block;
   padding: 20px 20px;
 }
 
+.container-room-row {
+  display: flex;
+  padding: 20px 20px;
+}
 .container-search {
   display: block;
   padding: 40px 0px 20px 0px;
@@ -218,4 +227,30 @@ body {
 
 .container-add-room {
   margin-bottom: 30px;
+}
+
+.container-room-page {
+  display: block;
+}
+
+// style for user dashboard (courses)
+.container-dashboard {
+  border-radius: 10px;
+  margin-top: 30px;
+  height: 100vh;
+  padding: 20px;
+}
+
+// style for after signing in
+.container-signin {
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+// style for individual rooms
+.course-col{
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 300px;
 }
