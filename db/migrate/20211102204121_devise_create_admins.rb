@@ -7,7 +7,6 @@ class DeviseCreateAdmins < ActiveRecord::Migration[5.2]
       t.string :full_name
       t.string :uid
       t.string :avatar_url
-      #t.references :room, null: false, foreign_key: true # test relation
       t.timestamps null: false
     end
 

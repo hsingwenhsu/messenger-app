@@ -21,23 +21,17 @@ document.addEventListener('turbolinks:load', () => {
     },
 
     received(data) {
-      const user_element = document.getElementById('user-id');
+      // const user_element = document.getElementById('user-id');
+      const admin_element = document.getElementById('admin-id');
       // const user_id = Number(user_element.getAttribute('data-user-id'));
       const admin_id = Number(admin_element.getAttribute('data-admin-id'));
       let html;
-
       if (admin_id === data.message.admin_id) {
         html = data.mine
       } else {
         html = data.theirs
       }
-      /*if (user_id === data.message.user_id) {
-        html = data.mine
-      } else {
-        html = data.theirs
-      }*/
-
-
+    
       const messageContainer = document.getElementById('messages')
       messageContainer.innerHTML = messageContainer.innerHTML + html
     }

@@ -17,9 +17,8 @@
 </nav>
 <div class="container">
   <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
-  
+  <div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
   <div class="row">
-    
     <div class="col-3 bg-light">
       <div>
         <h3 class="p-2 mt-3">
@@ -27,7 +26,6 @@
         </h3>
         <hr>
         <div class="course-col">
-          
           <% @rooms.each do |room| %>
             <%= link_to room, class: 'room-link-sidebar' do %>
               <% active_class = (@room == room) ? 'active' : '' %>
@@ -35,7 +33,7 @@
                 <div class="card-body">
                   <span class='name'><%= room.name %></span><br>
                   <span class='member-count'>
-                    
+
                   </span>
                 </div>
               </div>
@@ -63,15 +61,15 @@
             </span>
            
           </nav>
-          <div id="messages">
+          <div id="messages" >
             <% @room.messages.each do |message| %>
               <%= render 'messages/message', message: message %>
             <% end %>
-            <div class="chat-box">
-              <%= render 'messages/form', message: Message.new, room: @room %>
-            </div>
+            
           </div>
-          
+          <div class="chat-box">
+            <%= render 'messages/form', message: Message.new, room: @room %>
+          </div>
         </div>
       <% end %>
     </div>
