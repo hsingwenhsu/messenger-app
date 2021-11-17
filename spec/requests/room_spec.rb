@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Rooms", type: :request do
 
+  let(:valid_attributes) {
+    {:name => "test name"}
+  }
+
   before(:all) do
     room = Room.create!
     Capybara.default_host = 'localhost:3000'
@@ -36,5 +40,37 @@ RSpec.describe "Rooms", type: :request do
         }.to change(Room, :count).by(1)
       end
     end
+  end
+
+  describe "POST /create" do
+    context "with valid parameters" do
+      it "creates a new Room" do
+        expect {
+          post rooms_url, params: { room: valid_attributes }
+        }.to change(Room, :count).by(1)
+      end
+    end
+  end
+
+  describe "PATCH /update" do
+    let(:new_attributes) {
+      {:name => "test update name"}
+    }
+    it "update the requested room" do
+      room = Room.create!(valid_attributes)
+      patch room_url(room), params: { room: new_attributes }
+      room.reload
+      expect(response).to redirect_to(room_url(room))
+    end
+  end
+
+  describe "DELETE /destroy" do
+    it "destroys the requested room" do
+      room = Room.create!(valid_attributes)
+      expect {
+        delete room_url(room)
+      }.to change(Room, :count).by(-1)
+    end
+
   end
 end
