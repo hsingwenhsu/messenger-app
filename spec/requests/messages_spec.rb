@@ -15,6 +15,9 @@ RSpec.describe "Messages", type: :request do
   let(:invalid_attributes) {
     {:content => 'hi', :admin_id => 1000, :room_id => 1000}
   }
+  let(:new_attributes) {
+    {:content => 'hiiiii', :admin_id => 1, :room_id => 1}
+  }
 
   before(:all) do
     # User.generate
@@ -33,19 +36,36 @@ RSpec.describe "Messages", type: :request do
     #   :avatar_url => 'test_url'
     #   # etc.
     # })
-    admin = Admin.create!(:uid => "111101028321895", :email => '2@columbia.edu', :full_name => 'Test')
+    Capybara.default_host = 'localhost:3000'
+    # puts default_url_options
+    default_url_options[:host] = 'localhost:3000'
+    # puts default_url_options
+    email_length = rand(20...50)
+    email = (0...email_length).map { ('a'..'z').to_a[rand(26)] }.join+'@columbia.edu'
+    admin = Admin.create!(:uid => "111101028321895", :email => email, :full_name => 'Test')
+    # puts 'email'
+    # puts email
+    # puts email_length
     # user = Admin.find_by(uid: "111101028321895")
     login_as(admin, :scope => :admin)
     current_admin = admin
-    # puts 12341234
+    
 
   end
 
   describe "GET /index" do
     it "renders a successful response" do
+      
+      # @request.host = localhost:3000
+      # puts @request.host
       Message.create!(valid_attributes)
+      # get "/messages" # , headers: { "HTTP_REFERER": "localhost:3000" }
       get messages_url
+      # puts messages_url
+      # puts response.header
+      # puts response.body
       expect(response).to be_successful
+      
     end
   end
 
@@ -53,6 +73,11 @@ RSpec.describe "Messages", type: :request do
     it "renders a successful response" do
       message = Message.create!(valid_attributes)
       get message_url(message)
+      # puts 1234
+      # puts message_url(message) # .http://localhost/messages/1
+      # get '/messages/1'
+      # puts response.header
+      # puts response.body
       expect(response).to be_successful
     end
   end
@@ -75,6 +100,9 @@ RSpec.describe "Messages", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       it "creates a new message" do
+        # puts messages_url # .http://localhost/messages
+        # puts message_url # http://localhost/messages/1
+        
         expect {
           post messages_url, params: { message: valid_attributes }
         }.to change(Message, :count).by(1)
@@ -99,10 +127,20 @@ RSpec.describe "Messages", type: :request do
       # end
     end
   end
+  
+  describe "PATCH /update" do
+    it "update the requested message" do
+      message = Message.create!(valid_attributes)
+      patch message_url(message), params: { message: new_attributes }
+      message.reload
+      expect(response).to redirect_to(message_url(message))
+    end
+  end
 
   describe "DELETE /destroy" do
     it "destroys the requested message" do
       message = Message.create!(valid_attributes)
+      puts message
       expect {
         delete message_url(message)
       }.to change(Message, :count).by(-1)
@@ -111,7 +149,10 @@ RSpec.describe "Messages", type: :request do
     it "redirects to the messages list" do
       message = Message.create!(valid_attributes)
       delete message_url(message)
-      expect(response).to redirect_to(messages_url)
+      expect(response).to redirect_to('/messages')
     end
   end
+
+
+
 end
