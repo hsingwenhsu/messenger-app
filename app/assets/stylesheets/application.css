@@ -12,10 +12,9 @@
  *
  *= require_tree .
  *= require_self
- *= require material_icons
  */
 
- @import "materialize/components/icons-material-design";
+ 
 .btn-login {
     font-size: 0.9rem;
     letter-spacing: 0.05rem;
