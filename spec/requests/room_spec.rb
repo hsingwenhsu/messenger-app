@@ -64,13 +64,12 @@ RSpec.describe "Rooms", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested room" do
-      room = Room.create!(valid_attributes)
-      expect {
-        delete room_url(room)
-      }.to change(Room, :count).by(-1)
-    end
-
-  end
+  # describe "DELETE /destroy" do
+  #   it "destroys the requested room" do
+  #     room = Room.create!(valid_attributes)
+  #     expect {
+  #       delete room_url(room)
+  #     }.to change(Room, :count).by(-1)
+  #   end
+  # end
 end

@@ -133,10 +133,10 @@ RSpec.describe "/enrollments", type: :request do
       }.to change(Enrollment, :count).by(-1)
     end
 
-    it "redirects to the enrollments list" do
-      enrollment = Enrollment.create! valid_attributes
-      delete enrollment_url(enrollment)
-      expect(response).to redirect_to(enrollments_url)
-    end
+    # it "redirects to the enrollments list" do
+    #   enrollment = Enrollment.create! valid_attributes
+    #   delete enrollment_url(enrollment)
+    #   expect(response).to redirect_to(enrollments_url)
+    # end
   end
 end
