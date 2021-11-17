@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #devise_for :admins
   resources :messages
   resources :rooms
-  resources :users
+  #resources :users
   resources :enrollments
   #root 'users#index'
 
