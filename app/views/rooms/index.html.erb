@@ -53,6 +53,12 @@
             
             <div style="padding: 10px; justify-content: center">
               <%= render 'enrollments/form', enrollment: Enrollment.new, room: room %>
+              <button class="btn btn-outline-primary">
+                <%= link_to 'Delete room', room, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["destroy_room"+room.id.to_s]%>
+              </button>
+              <button class="btn btn-outline-primary">
+                <%= link_to 'Update Room Name', edit_room_path(room), :id=>["edit_room"+room.id.to_s]  %>
+              </button>
             </div>
           </div>
         </div>
