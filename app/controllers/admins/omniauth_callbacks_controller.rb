@@ -49,4 +49,4 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @auth ||= request.env['omniauth.auth']
     end
   end
-  view raw
+  # view raw
