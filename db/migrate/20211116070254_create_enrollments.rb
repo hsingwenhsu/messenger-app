@@ -7,7 +7,9 @@ class CreateEnrollments < ActiveRecord::Migration[6.0]
       t.integer :room_id
       t.timestamps
     end
+    add_foreign_key :enrollments, :admins, column: :admin_id
     add_index :enrollments, :admin_id
+    add_foreign_key :enrollments, :rooms, column: :room_id
     add_index :enrollments, :room_id
   end
 end
