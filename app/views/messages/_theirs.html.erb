@@ -1,10 +1,11 @@
 <div class="message mb-2">
-  <div class="content-container">
+  <div class="content-container" id="message-id-<%= message.id %>">
     <div class="content">
       <%= message.content %>
     </div>
     <div class="author">
       <%= message.admin.full_name %>
+      <%= link_to 'Delete', message, method: :delete, data: {confirm: 'Delete message?'}, id: message.id %>
     </div>
   </div>
 </div>
