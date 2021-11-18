@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
     @message.admin = current_admin
     @message.save
 
-    SendMessageJob.perform_later(@message)
+    SendMessageJob.perform_later(@message, :append)
     # redirect_back fallback_location: "/rooms/#{@message.room_id}"
   end
 
@@ -50,6 +50,7 @@ class MessagesController < ApplicationController
   # DELETE /messages/1
   # DELETE /messages/1.json
   def destroy
+    SendMessageJob.perform_later(@message, :delete)
     @message.destroy
     # respond_to do |format|
     #   format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
