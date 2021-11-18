@@ -128,14 +128,14 @@ RSpec.describe "Messages", type: :request do
     end
   end
   
-  describe "PATCH /update" do
-    it "update the requested message" do
-      message = Message.create!(valid_attributes)
-      patch message_url(message), params: { message: new_attributes }
-      message.reload
-      expect(response).to redirect_to(message_url(message))
-    end
-  end
+  # describe "PATCH /update" do
+  #   it "update the requested message" do
+  #     message = Message.create!(valid_attributes)
+  #     patch message_url(message), params: { message: new_attributes }
+  #     message.reload
+  #     expect(response).to redirect_to(message_url(message))
+  #   end
+  # end
 
   describe "DELETE /destroy" do
     it "destroys the requested message" do

@@ -95,35 +95,35 @@ RSpec.describe "/enrollments", type: :request do
     # end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        {:admin_id => 1000, :room_id => 1}
-      }
+  # describe "PATCH /update" do
+  #   context "with valid parameters" do
+  #     let(:new_attributes) {
+  #       {:admin_id => 1000, :room_id => 1}
+  #     }
 
-      it "updates the requested enrollment" do
-        enrollment = Enrollment.create! valid_attributes
-        patch enrollment_url(enrollment), params: { enrollment: new_attributes }
-        enrollment.reload
-        # expect(response).to redirect_to(enrollment_url(enrollment))
-      end
+  #     it "updates the requested enrollment" do
+  #       enrollment = Enrollment.create! valid_attributes
+  #       patch enrollment_url(enrollment), params: { enrollment: new_attributes }
+  #       enrollment.reload
+  #       # expect(response).to redirect_to(enrollment_url(enrollment))
+  #     end
 
-      # it "redirects to the enrollment" do
-      #   enrollment = Enrollment.create! valid_attributes
-      #   patch enrollment_url(enrollment), params: { enrollment: new_attributes }
-      #   enrollment.reload
-      #   expect(response).to redirect_to(enrollment_url(enrollment))
-      # end
-    end
+  #     # it "redirects to the enrollment" do
+  #     #   enrollment = Enrollment.create! valid_attributes
+  #     #   patch enrollment_url(enrollment), params: { enrollment: new_attributes }
+  #     #   enrollment.reload
+  #     #   expect(response).to redirect_to(enrollment_url(enrollment))
+  #     # end
+  #   end
 
-    context "with invalid parameters" do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        enrollment = Enrollment.create! valid_attributes
-        patch enrollment_url(enrollment), params: { enrollment: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
-  end
+  #   context "with invalid parameters" do
+  #     it "renders a successful response (i.e. to display the 'edit' template)" do
+  #       enrollment = Enrollment.create! valid_attributes
+  #       patch enrollment_url(enrollment), params: { enrollment: invalid_attributes }
+  #       expect(response).to be_successful
+  #     end
+  #   end
+  # end
 
   describe "DELETE /destroy" do
     it "destroys the requested enrollment" do
