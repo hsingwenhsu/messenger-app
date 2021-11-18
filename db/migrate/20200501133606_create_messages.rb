@@ -11,8 +11,6 @@ class CreateMessages < ActiveRecord::Migration[6.0]
       t.integer :room_id
       t.timestamps
     end
-    add_foreign_key :messages, :admin, column: :admin_id
-    add_foreign_key :messages, :room, column: :room_id
     add_index :messages, :admin_id
     add_index :messages, :room_id
   end
