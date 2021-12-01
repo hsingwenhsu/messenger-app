@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :private_messages
   resources :privates
   resources :events
   root to: 'dashboards#show'
