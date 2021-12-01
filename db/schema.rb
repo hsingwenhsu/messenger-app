@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_010039) do
+ActiveRecord::Schema.define(version: 2021_12_01_215114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 2021_11_18_010039) do
     t.index ["room_id"], name: "index_enrollments_on_room_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.integer "room_id"
@@ -44,10 +49,27 @@ ActiveRecord::Schema.define(version: 2021_11_18_010039) do
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
+  create_table "private_messages", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "content"
+    t.integer "private_room_id"
+    t.integer "admin_id"
+  end
+
+  create_table "privates", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "admin_id1"
+    t.string "admin_id2"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "private_messages", "admins"
+  add_foreign_key "private_messages", "privates", column: "private_room_id"
 end
