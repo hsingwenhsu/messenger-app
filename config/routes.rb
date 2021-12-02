@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts
+  # resources :posts
   resources :events
   root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :testing
   #devise_for :admins
   resources :messages
-  resources :rooms
+  resources :rooms do
+    resources :posts
+  end
   #resources :users
   resources :enrollments
   #root 'users#index'
