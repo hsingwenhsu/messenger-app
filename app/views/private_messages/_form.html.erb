@@ -1,0 +1,25 @@
+<%= form_with(model: private_message, local: true) do |form| %>
+  <% if private_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(private_message.errors.count, "error") %> prohibited this private_message from being saved:</h2>
+
+      <ul>
+        <% private_message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :private_id, value: private.id %>
+  <%= form.hidden_field :admin_id, value: current_admin.id %>
+
+  <div class="input-group">
+    <%= form.text_field :content, placeholder: "Type your message here...", class: 'form-control', id: 'msg-input' %>
+    <div class="input-group-append">
+      <%= form.submit "Add Message", class: "btn btn-primary", data: { disable_with: false }, id: 'msg-submit' %>
+    </div>
+  </div>
+
+
+<% end %>

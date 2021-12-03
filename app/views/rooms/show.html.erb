@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
     <div class="container-fluid">
     <h1 class="navbar-left white-font">
-        Suffer Together!
+        <%= link_to "Suffer Together", '/rooms' %>
     </h1>
     
         
@@ -11,7 +11,7 @@
         <%= link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
-        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+        <h6 style="color:white"><%= link_to "View Rooms", '/rooms' %> or <%= link_to "View Events", '/events' %></h6> 
     </div>
     </div>
 </nav>
@@ -22,23 +22,24 @@
     <div class="col-3 bg-light">
       <div>
         <h3 class="p-2 mt-3">
-          Courses
+          My Courses
         </h3>
         <hr>
         <div class="course-col">
-          <% @rooms.each do |room| %>
-            <%= link_to room, class: 'room-link-sidebar' do %>
-              <% active_class = (@room == room) ? 'active' : '' %>
+          <% Enrollment.where(:admin_id==current_admin.id).select(:room_id).distinct.each do |enrollment| %>
+            <%= link_to Room.find(enrollment.room_id), class: 'room-link-sidebar' do %>
+            <% active_class = (@room == Room.find(enrollment.room_id)) ? 'active' : '' %>
               <div class="card no-outline mb-2 room-card <%= active_class %>">
                 <div class="card-body">
-                  <span class='name'><%= room.name %></span><br>
+                  <span class='name'><%= Room.find(enrollment.room_id).name %></span><br>
                   <span class='member-count'>
 
                   </span>
                 </div>
               </div>
-            <% end %>
-          <% end %>
+              <% end%>
+          <% end%>
+          
         </div>
       </div>
       
@@ -58,8 +59,32 @@
         </h3>
         <hr>
         <div class="course-col">
+          <div class="event-createbox">
+            <h4>Create Event</h4>
+            <%= render 'events/form', event: Event.new, room: @room %>
+          </div>
+          <hr>
+          <div class="event-list">
+            <h4>Event List</h4>
+            <div class="events">
+              <% @room.events.each do |event| %>
+                <%= link_to event, class: 'room-link-sidebar' do %>
+                  <% active_class = (@event == event) ? 'active' : '' %>
+                  <div class="card no-outline mb-2 room-card <%= active_class %>">
+                    <div class="card-body">
+                      <span class='name'><%= event.title %></span><br>
+                      <span class='member-count'>
+
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
           
+          </div>
         </div>
+        
       </div>
     </div>
     
@@ -67,9 +92,16 @@
       <% if @room.present? %>
         <div class="chat-room">
           <nav class="navbar navbar-light">
-            <span class="navbar-brand" href="#">
+            <div class="navbar-left">
+              <span class="navbar-brand" href="#">
               <b><%= @room.name %></b>
-            </span>
+              
+              </span>
+            </div>
+            <div class="navbar-right">
+              <b style="color:gray;"><%= link_to 'Edit', edit_room_path(@room) %> </b>
+              
+            </div>
            
           </nav>
           <div id="messages" >
@@ -87,5 +119,5 @@
   </div>
 </div>
 <p id="notice"><%= notice %></p>
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+
+

@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  
   <%= form.hidden_field :room_id, value: room.id %>
   <%= form.hidden_field :admin_id, value: current_admin.id %>
 
@@ -19,4 +20,6 @@
       <%= form.submit "Add Message", class: "btn btn-primary", data: { disable_with: false }, id: 'msg-submit' %>
     </div>
   </div>
+  
+ 
 <% end %>

@@ -47,6 +47,21 @@ body {
     height: 600px;
   }
 
+  #private_messages {
+    /*height: 100%;*/
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    height: 600px;
+  }
+  #event-messages {
+    /*height: 100%;*/
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    height: 600px;
+  }
+
   .navbar {
     border-bottom: 1px solid #eeeeee;
     margin-left: -15px;
@@ -235,11 +250,15 @@ body {
 }
 
 // style for user dashboard (courses)
+.enrollment-title-div {
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
 .container-dashboard {
-  border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 10px;
   height: 100vh;
-  padding: 20px;
+  padding: 0px;
 }
 
 // style for after signing in
@@ -254,4 +273,46 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   height: 300px;
+}
+
+
+
+
+// style for events
+.event-container {
+  display: block;
+  height: 70vh;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.event-createbox {
+  justify-content: center;
+}
+
+#event-create {
+  width: 100%;
+}
+
+
+.card-body-event {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.col-4 .col-4-event {
+  padding: 0px;
+}
+
+.all-event-container {
+  margin: 0px;
+  padding: 0px;
+  height: 50vh;
+}
+
+.all-event-title-div {
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }

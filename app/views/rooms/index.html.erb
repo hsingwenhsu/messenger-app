@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
     <div class="container-fluid">
     <h1 class="navbar-left white-font">
-        Suffer Together!
+        <%= link_to "Suffer Together", '/rooms' %>
     </h1>
     
         
@@ -11,6 +11,7 @@
         <%=  link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
+        <h6 style="color:white"><%= link_to "View Rooms", '/rooms' %> or <%= link_to "View Events", '/events' %></h6> 
     </div>
     </div>
 </nav>
@@ -37,7 +38,6 @@
 
   <div class="row">
   <% @rooms.each do |room| %>
-    
       <div class="col" style="margin: 10px; width: 300px">
         <div class="card no-outline mb-2 room-card">
           <div class="card-body" style="text-align: center">
@@ -53,13 +53,7 @@
             
             <div style="padding: 10px; justify-content: center">
               <%= render 'enrollments/form', enrollment: Enrollment.new, room: room %>
-              <%
-=begin%>
- <button class="btn btn-outline-primary">
-                <%= link_to 'Delete room', room, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["destroy_room"+room.id.to_s]%>
-              </button> 
-<%
-=end%>
+              
               <button class="btn btn-outline-primary">
                 <%= link_to 'Update Room Name', edit_room_path(room), :id=>["edit_room"+room.id.to_s]  %>
               </button>

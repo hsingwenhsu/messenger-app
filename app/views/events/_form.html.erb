@@ -10,8 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+  
+  <div class="form-group mb-3" >
+    <%= form.hidden_field :room_id, value: room.id%>
+    <%= form.text_field :title, class: 'form-control', placeholder: "Title", id: 'event-title'  %>
+    <%= form.date_field :event_date, class: 'form-control', placeholder: "Date", id: 'event-date'%>
+    <%= form.time_field :event_start, class: 'form-control', placeholder: "Start Time", id: 'event-start'  %>
+    <%= form.time_field :event_end, class: 'form-control', placeholder: "End Time", id: 'event-end' %>
+    <div class="actions">
+      <%= form.submit "Submit", class: "btn btn-primary", id: 'event-create' %>
+    </div>
   </div>
+  
 <% end %>

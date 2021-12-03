@@ -1,0 +1,23 @@
+<%= form_with(model: private, local: true) do |form| %>
+  <% if private.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(private.errors.count, "error") %> prohibited this private from being saved:</h2>
+
+      <ul>
+        <% private.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+    <%= form.hidden_field :admin_id1, value: admin1.id%>
+    <%= form.hidden_field :admin_id2, value: admin2.id%>
+    <%= form.hidden_field :admin_name1, value: admin1.full_name%>
+    <%= form.hidden_field :admin_name2, value: admin2.full_name%>
+    <div class="actions">
+    <%= form.submit admin1.full_name, class:"btn btn-link" %>
+    </div>
+
+
+<% end %>

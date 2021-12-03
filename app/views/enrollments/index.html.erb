@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
     <div class="container-fluid">
     <h1 class="navbar-left white-font">
-        Enrollment
+        <%= link_to "Suffer Together", '/rooms' %>
     </h1>
     
         
@@ -11,39 +11,54 @@
         <%= link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
-        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+        <h6 style="color:white"><%= link_to "View Rooms", '/rooms' %> or <%= link_to "View Events", '/events' %></h6> 
     </div>
     </div>
 </nav>
 
 
 <div class="container container-dashboard bg-light">
-  <div class="row mb-3">
-  <% @enrollments.each do |enrollment| %>
-  <% if enrollment.admin_id==current_admin.id%>
-    <div class="col-4 p-2">
-      <div class="card card-enrollment" style="border:none">
-        <div class="p-3 ">
-          <h3 class="mb-3">
-            <%= link_to Room.where({id: enrollment.room_id}).first , class: 'room-link room-card' do %>
-              <%= Room.where({id: enrollment.room_id}).first.name %>
-            <% end %>
-          </h3>
-          <button class="btn btn-outline-primary">
-            <%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["delete_enrollment"+enrollment.room_id.to_s]%>
-          </button>
-          <button class="btn btn-outline-primary">
-            <%= link_to 'Edit', edit_enrollment_path(enrollment)  %>
-          </button>
-          <button class="btn btn-outline-primary">
-            <%= link_to 'Show', enrollment, :id=>["show_enrollment"+enrollment.id.to_s] %>
-          </button>
-        </div>
-      </div>
+  
+  
+  <div class="container bg-dark" style="margin-top:30px;border-top-left-radius:5px;border-top-right-radius:5px;">
+    <div class="enrollment-title-div" style="border-top-left-radius:10px;border-top-right-radius:10px">
+        <h1>My Enrollments</h1>
     </div>
-  <% end %>
-  <% end %>
   </div>
+  <% @enrollments.each do |enrollment| %>
+    <% if enrollment.admin_id==current_admin.id%>
+      <div class="col-4 p-2">
+        <div class="card card-enrollment" style="border:none">
+          <div class="p-3 ">
+            <h3 class="mb-3">
+              <%= link_to Room.where({id: enrollment.room_id}).first , class: 'room-link room-card' do %>
+                <%= Room.where({id: enrollment.room_id}).first.name %>
+              <% end %>
+            </h3>
+            <button class="btn btn-outline-primary">
+              <%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["delete_enrollment"+enrollment.room_id.to_s]%>
+            </button>
+            <button class="btn btn-outline-primary">
+              <%= link_to 'Edit', edit_enrollment_path(enrollment)  %>
+            </button>
+            <button class="btn btn-outline-primary">
+              <%= link_to 'Show', enrollment, :id=>["show_enrollment"+enrollment.id.to_s] %>
+            </button>
+            
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
+  <% end %>
+  <div class="container bg-dark" style="margin-top:30px;border-top-left-radius:5px;border-top-right-radius:5px;">
+    <div class="enrollment-title-div" style="border-top-left-radius:10px;border-top-right-radius:10px">
+        <h1>My Events</h1>
+    </div>
+    
+  </div>
+  <%= render 'attendances/dashboard'%>
+  
 </div>
 
 
