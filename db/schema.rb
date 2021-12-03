@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
     t.index ["room_id"], name: "index_events_on_room_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.integer "room_id"
@@ -74,6 +79,17 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.integer "admin_id"
+    t.integer "room_id"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_posts_on_admin_id"
+    t.index ["room_id"], name: "index_posts_on_room_id"
+  end
+  
   create_table "private_messages", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,6 +113,8 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "posts", "admins"
+  add_foreign_key "posts", "rooms"
   add_foreign_key "private_messages", "admins"
   add_foreign_key "private_messages", "privates"
   add_foreign_key "attendances", "admins"

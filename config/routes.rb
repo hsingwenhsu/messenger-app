@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # resources :posts
   resources :private_messages
   resources :privates
   resources :attendances
@@ -16,7 +17,9 @@ Rails.application.routes.draw do
   resources :testing
   #devise_for :admins
   resources :messages
-  resources :rooms
+  resources :rooms do
+    resources :posts
+  end
   #resources :users
   resources :enrollments
   #root 'users#index'
