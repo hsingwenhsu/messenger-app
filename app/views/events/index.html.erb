@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
     <div class="container-fluid">
     <h1 class="navbar-left white-font">
-        Suffer Together!
+        <%= link_to "Suffer Together", '/rooms' %>
     </h1>
     
         
@@ -12,67 +11,40 @@
         <%= link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
-        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+        <h6 style="color:white"><%= link_to "View Rooms", '/rooms' %> or <%= link_to "View Events", '/events' %></h6> 
     </div>
     </div>
 </nav>
 
-<div class="container">
-  <div id="event-id" data-event-id="<%= @event.try(:id) %>"></div>
-  <div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
-  <div class="row">
-    <div class="col">
-      <%if @event.present? %>
-        <div class="chat-room">
-          <nav class="navbar navbar-light">
-            <span class="navbar-brand" href="#">
-              <b><%= @event.title %></b>
-            </span>
-          </nav>
-          <div id="messages" >
-            <% @event.messages.each do |message| %>
-              <%= render 'messages/message', message: message %>
-            <% end %>
+
+<div class="container event-container bg-light">
+    <div class="container all-event-container" style="margin-top:30px;border-top-left-radius:5px;border-top-right-radius:5px;">
+      <nav class="all-event-title-div bg-dark">
+          <h1 style="padding-left:20px;">All Events</h1>
+      </nav>
+      <div class="row" style="padding-left:30px; padding-right:30px; padding-top: 10px;">
+      <% @events.each do |event| %>
+          <div class="col-4 col-4-event" style="padding-left:5px; padding-right:5px;">
+              <div class="card-body card-body-event shadow-sm">
+                <h5 class="card-title"><%= link_to event.title, event %></h5>
+                <p class="card-text">
+                  
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Course: <%= link_to Room.find(event.room_id).name, Room.find(event.room_id) %></li>
+                    <li class="list-group-item">Date: <%= event.event_date %></li>
+                    <li class="list-group-item">Time: <%= event.event_start.strftime('%H:%M') %>-<%= event.event_end.strftime('%H:%M')%></li>
+                  </ul>
+                </p>
+                <%= link_to 'Show', event, class:"btn btn-info" %>
+                <%= link_to 'Edit', edit_event_path(event), class:"btn btn-info" %>
+                <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info" %>
+              </div>
           </div>
-          <div class="chat-box">
-            <%= render 'messages/form', message: Message.new, room: @room %>
-          </div>
-        </div>
+          
       <% end %>
     </div>
-  </div>
-</div>
-
-<div class="container event-container">
-  <h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td>Title: <%= event.title%></td>
-        <td>Room ID: <%= event.room_id%></td>
-        <td>Start Time: <%= event.event_start%></td>
-        <td>End Time: <%= event.event_end%></td>
-      </tr>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+    </div>
+    
 </div>
 
 

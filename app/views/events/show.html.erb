@@ -11,7 +11,8 @@
         <%= link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
-        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+        <h6 style="color:white"><%= link_to "View Rooms", '/rooms' %> or <%= link_to "View Events", '/events' %></h6> 
+        
     </div>
     </div>
 </nav>
@@ -25,14 +26,20 @@
                 <div class="chat-room">
                 <nav class="navbar navbar-light">
                     <div class="container-fluid">
-                        <div>
-                        <h2 class="navbar-left">Event: <%= @event.title %></h2>
-                        <h5 class="navbar-left" style="color:gray">Course: <%= link_to Room.find(@event.room_id).name, Room.find(@event.room_id) %></h5>
+                        
+                        <div class="navbar-left">
+                            <h2>
+                                Event: <%= @event.title %>
+                            </h2>
+                            
+                            <h5 class="navbar-left" style="color:gray">Course: <%= link_to Room.find(@event.room_id).name, Room.find(@event.room_id) %></h5>
                         </div>
                         
                         <div class="navbar-right">
                             <h6 style="color:gray">Date: <%= @event.event_date %></h6>
                             <h6 style="color:gray">Time: <%= @event.event_start.strftime('%H:%M') %>-<%= @event.event_end.strftime('%H:%M')%></h6>
+                            <%= link_to 'Edit', edit_event_path(@event) %> |
+                            <%= link_to 'Event List', events_path %>
                         </div>
                     </h2>
                     
@@ -50,15 +57,7 @@
                 </div>
             <% end %>
         </div>
+        
     </div>
-</div>
-<div class="container">
-<h2>Title: 
-<%= @event.title %> 
-</h2>
-<h2>Room ID: 
-<%= @event.room_id %> 
-</h2>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    
 </div>

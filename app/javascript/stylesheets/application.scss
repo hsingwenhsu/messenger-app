@@ -273,7 +273,10 @@ body {
 
 // style for events
 .event-container {
-  display: flex;
+  display: block;
+  height: 70vh;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .event-createbox {
@@ -286,4 +289,26 @@ body {
 
 a:link {
   color: white;
+}
+
+.card-body-event {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.col-4 .col-4-event {
+  padding: 0px;
+}
+
+.all-event-container {
+  margin: 0px;
+  padding: 0px;
+  height: 50vh;
+}
+
+.all-event-title-div {
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }

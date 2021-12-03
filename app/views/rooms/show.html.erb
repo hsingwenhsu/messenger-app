@@ -11,7 +11,7 @@
         <%= link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
         </h6>
         <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
-        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+        <h6 style="color:white"><%= link_to "View Rooms", '/rooms' %> or <%= link_to "View Events", '/events' %></h6> 
     </div>
     </div>
 </nav>
@@ -80,9 +80,15 @@
       <% if @room.present? %>
         <div class="chat-room">
           <nav class="navbar navbar-light">
-            <span class="navbar-brand" href="#">
+            <div class="navbar-left">
+              <span class="navbar-brand" href="#">
               <b><%= @room.name %></b>
-            </span>
+              
+              </span>
+            </div>
+            <div class="navbar-right">
+              <b style="color:gray;"><%= link_to 'Edit', edit_room_path(@room) %> </b>
+            </div>
            
           </nav>
           <div id="messages" >
@@ -100,5 +106,5 @@
   </div>
 </div>
 <p id="notice"><%= notice %></p>
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+
+

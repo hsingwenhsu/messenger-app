@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attendances
   resources :event_messages
   resources :events
   root to: 'dashboards#show'
