@@ -1,0 +1,12 @@
+<div class="private_message mb-2 <%= 'me' if private_message.admin == current_admin %>">
+  
+  <div class="content-container">
+    <div class="content">
+      <%= private_message.content %>
+    </div>
+    <div class="author">
+      <%= render 'privates/form', private: Private.new, admin1: private_message.admin, admin2: current_admin %>
+      <%= link_to 'Delete' , private_message, method: :delete, data: {confirm: 'Delete private_message?'}, id: private_message.id%>
+    </div>
+  </div>
+</div>

@@ -9,9 +9,13 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <% end %>
+    <%= form.hidden_field :admin_id1, value: admin1.id%>
+    <%= form.hidden_field :admin_id2, value: admin2.id%>
+    <div class="actions">
+    <%= form.submit admin1.full_name, class:"btn btn-link" %>
+    </div>
+
+
 <% end %>

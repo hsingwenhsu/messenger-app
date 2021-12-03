@@ -10,6 +10,7 @@ class PrivatesController < ApplicationController
   # GET /privates/1
   # GET /privates/1.json
   def show
+    @privates = Private.all
   end
 
   # GET /privates/new
@@ -69,6 +70,6 @@ class PrivatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def private_params
-      params.fetch(:private, {})
+      params.require(:private).permit(:admin_id1, :admin_id2)
     end
 end

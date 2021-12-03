@@ -25,17 +25,27 @@ class PrivateMessagesController < ApplicationController
   # POST /private_messages.json
   def create
     @private_message = PrivateMessage.new(private_message_params)
+    puts 'private_message params'
+    puts private_message_params
+    puts @private_message
+    # @private_message.user = current_user
+    @private_message.admin = current_admin
+    @private_message.save
 
-    respond_to do |format|
-      if @private_message.save
-        format.html { redirect_to @private_message, notice: 'Private message was successfully created.' }
-        format.json { render :show, status: :created, location: @private_message }
-      else
-        format.html { render :new }
-        format.json { render json: @private_message.errors, status: :unprocessable_entity }
-      end
-    end
+    SendPrivateMessageJob.perform_later(@private_message)
   end
+  #   @private_message = PrivateMessage.new(private_message_params)
+
+  #   respond_to do |format|
+  #     if @private_message.save
+  #       format.html { redirect_to @private_message, notice: 'Private message was successfully created.' }
+  #       format.json { render :show, status: :created, location: @private_message }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @private_message.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /private_messages/1
   # PATCH/PUT /private_messages/1.json
@@ -69,6 +79,7 @@ class PrivateMessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def private_message_params
-      params.fetch(:private_message, {})
+      params.require(:private_message).permit(:content, :private_id, :admin_id)
+      #params.fetch(:private_message, {})
     end
 end
