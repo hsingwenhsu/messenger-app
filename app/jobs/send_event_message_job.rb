@@ -12,6 +12,6 @@ class SendEventMessageJob < ApplicationJob
       locals: { event_message: event_message }
     )
 
-    ActionCable.server.broadcast "event_channel_#{event_.event_id}", mine: mine, theirs: theirs, message: event_message
+    ActionCable.server.broadcast "event_channel_#{event_message.event_id}", mine: mine, theirs: theirs, event_message: event_message
   end
 end

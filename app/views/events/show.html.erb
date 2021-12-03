@@ -38,7 +38,7 @@
                     
                 
                 </nav>
-                <div id="messages" >
+                <div id="event-messages" >
                     <% @event.event_messages.each do |event_message| %>
                     <%= render 'event_messages/event_message', event_message: event_message  %>
                     <% end %>
