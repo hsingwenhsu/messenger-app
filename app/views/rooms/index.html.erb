@@ -38,7 +38,6 @@
 
   <div class="row">
   <% @rooms.each do |room| %>
-    
       <div class="col" style="margin: 10px; width: 300px">
         <div class="card no-outline mb-2 room-card">
           <div class="card-body" style="text-align: center">
@@ -54,13 +53,7 @@
             
             <div style="padding: 10px; justify-content: center">
               <%= render 'enrollments/form', enrollment: Enrollment.new, room: room %>
-              <%
-=begin%>
- <button class="btn btn-outline-primary">
-                <%= link_to 'Delete room', room, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["destroy_room"+room.id.to_s]%>
-              </button> 
-<%
-=end%>
+              
               <button class="btn btn-outline-primary">
                 <%= link_to 'Update Room Name', edit_room_path(room), :id=>["edit_room"+room.id.to_s]  %>
               </button>
