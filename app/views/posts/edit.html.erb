@@ -1,6 +1,63 @@
-<h1>Editing Post</h1>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
+    <div class="container-fluid">
+    <h1 class="navbar-left white-font">
+        Suffer Together!
+    </h1>
+    
+        
+    <div class="navbar-right"> 
+        <h6 style="margin-right: 30px;color:white">
+        Who is suffering?  &nbsp
+        <%= link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
+        </h6>
+        <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
+        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+    </div>
+    </div>
+</nav>
+<div class="container">
+  <div id="room-id" data-room-id="<%= @room.try(:id) %>"></div>
+  <div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
+  <div class="row">
+    <div class="col-3 bg-light">
+      <div>
+        <h3 class="p-2 mt-3">
+          Posts in "<%= @room.name %>"
+        </h3>
+        <hr>
+        <%= link_to room_path(@room), class: 'room-link-sidebar' do %>
+          <div class="btn btn-danger btn-block">
+            Back to Room
+          </div>
+        <% end %>
+        <br>
+        <%= link_to new_room_post_path(@room), class: 'room-link-sidebar' do %>
+          <div class="btn btn-primary btn-block">
+            New Post
+          </div>
+        <% end %>
+        <hr>
+        <div class="course-col">
+          <% @room.posts.each do |post| %>
+            <%= link_to room_post_path(@room, post), class: 'room-link-sidebar' do %>
+              <% active_class = (@post == post) ? 'active' : '' %>
+              <div class="card no-outline mb-2 room-card <%= active_class %>">
+                <div class="card-body">
+                  <span class="name"><%= post.title %></span><br>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-9">
+      <h1>Editing Post</h1>
+      <%= render 'form', post: @post, url: room_post_path(@room, @post) %>
 
-<%= render 'form', post: @post, url: room_post_path(params[:room_id], @post) %>
-
-<%= link_to 'Show', edit_room_post_path(params[:room_id], @post) %> |
-<%= link_to 'Back', room_path(params[:room_id]) %>
+      <%= link_to 'Show', edit_room_post_path(@room, @post) %> |
+      <%= link_to 'Back', room_posts_path(@room) %>
+    </div>
+  </div>
+</div>

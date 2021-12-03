@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_room
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(:room_id => params[:room_id])
+    @posts = @room.posts
   end
 
   # GET /posts/1
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to room_post_url(params[:room_id], @post), notice: 'Post was successfully created.' }
+        format.html { redirect_to room_post_url(@room, @post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to room_post_url(params[:room_id], @post), notice: 'Post was successfully updated.' }
+        format.html { redirect_to room_post_url(@room, @post), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -65,6 +66,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_room
+      @room = Room.find(params[:room_id])
     end
 
     # Only allow a list of trusted parameters through.
