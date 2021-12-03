@@ -10,7 +10,8 @@ class PrivatesController < ApplicationController
   # GET /privates/1
   # GET /privates/1.json
   def show
-    @privates = Private.all
+    #@privates = Private.find_by("admin_id1 = ? OR admin_id2 = ?", current_admin.id, current_admin.id)
+    @privates = Private.where(:admin_id2 => current_admin.id).or(Private.where(:admin_id1 => current_admin.id ))
   end
 
   # GET /privates/new

@@ -5,8 +5,16 @@
       <%= message.content %>
     </div>
     <div class="author">
+      <% if message.admin.id != current_admin.id %>
       <%= render 'privates/form', private: Private.new, admin1: message.admin, admin2: current_admin %>
-      <%= link_to 'Delete' , message, method: :delete, data: {confirm: 'Delete message?'}, id: message.id%>
+      <% else %>
+      <%= message.admin.full_name %>
+      <% end%>
+      <%
+=begin%>
+ <%= link_to 'Delete' , message, method: :delete, data: {confirm: 'Delete message?'}, id: message.id%> 
+<%
+=end%>
     </div>
   </div>
 </div>

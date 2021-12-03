@@ -21,6 +21,7 @@ document.addEventListener('turbolinks:load', () => {
     },
 
     received(data) {
+      console.log('hi from room channel');
       // const user_element = document.getElementById('user-id');
       const admin_element = document.getElementById('admin-id');
       // const user_id = Number(user_element.getAttribute('data-user-id'));

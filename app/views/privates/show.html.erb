@@ -33,7 +33,7 @@
           <% @privates.each do |private| %>
             <%= link_to private, class: 'room-link-sidebar' do %>
               <% active_class = (@room == private) ? 'active' : '' %>
-              <div class="card no-outline mb-2 private-card <%= active_class %>">
+              <div class="card no-outline mb-2 room-card <%= active_class %>">
                 <div class="card-body">
                   <span class='name'><%= current_admin.id == private.admin_id1 ? private.admin_name2 : private.admin_name1 %></span><br>
                   <span class='member-count'>
