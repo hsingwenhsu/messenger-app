@@ -26,7 +26,11 @@
       <% @events.each do |event| %>
           <div class="col-4 col-4-event" style="padding-left:5px; padding-right:5px;">
               <div class="card-body card-body-event shadow-sm">
-                <h5 class="card-title"><%= link_to event.title, event %></h5>
+                  <div class="navbar">
+                    <h5 class="card-title navbar-right"><%= link_to event.title, event %> </h5>
+                    <%= render 'attendances/form', attendance: Attendance.new, event: event%>
+                  </div>
+                  
                 <p class="card-text">
                   
                   <ul class="list-group list-group-flush">

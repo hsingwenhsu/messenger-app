@@ -5,6 +5,7 @@ class Admin < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [:google_oauth2]
   has_many :enrollments
+  has_many :events
   has_many :messages
   has_many :rooms, through: :enrollments
   def self.from_google(email:, full_name:, uid:, avatar_url:)
