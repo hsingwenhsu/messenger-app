@@ -27,7 +27,7 @@
                     <div class="container-fluid">
                         <div>
                         <h2 class="navbar-left">Event: <%= @event.title %></h2>
-                        <h6 class="navbar-left" style="color:gray">Course: <%= Room.find(@event.room_id).name %></h6>
+                        <h5 class="navbar-left" style="color:gray">Course: <%= link_to Room.find(@event.room_id).name, Room.find(@event.room_id) %></h5>
                         </div>
                         
                         <div class="navbar-right">
