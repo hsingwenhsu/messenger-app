@@ -25,7 +25,13 @@ class PrivatesController < ApplicationController
   # POST /privates
   # POST /privates.json
   def create
-    @private = Private.new(private_params)
+    @private = Private.find_by(admin_id1: private_params[:admin_id1], admin_id2: private_params[:admin_id2])
+    if @private == nil
+      @private = Private.find_by(admin_id1: private_params[:admin_id2], admin_id2: private_params[:admin_id1])
+    end
+    if @private == nil
+      @private = Private.new(private_params)
+    end
 
     respond_to do |format|
       if @private.save
@@ -70,6 +76,6 @@ class PrivatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def private_params
-      params.require(:private).permit(:admin_id1, :admin_id2)
+      params.require(:private).permit(:admin_id1, :admin_id2, :admin_name1, :admin_name2)
     end
 end

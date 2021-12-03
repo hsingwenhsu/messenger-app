@@ -13,6 +13,8 @@
   <% end %>
     <%= form.hidden_field :admin_id1, value: admin1.id%>
     <%= form.hidden_field :admin_id2, value: admin2.id%>
+    <%= form.hidden_field :admin_name1, value: admin1.full_name%>
+    <%= form.hidden_field :admin_name2, value: admin2.full_name%>
     <div class="actions">
     <%= form.submit admin1.full_name, class:"btn btn-link" %>
     </div>

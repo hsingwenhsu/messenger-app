@@ -20,12 +20,13 @@
 
  <div class="container">
 
+  <div id="privates-room-id" data-privates-room-id="<%= @private.try(:id) %>"></div>
   <div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
   <div class="row">
     <div class="col-3 bg-light">
       <div>
         <h3 class="p-2 mt-3">
-          Courses
+          Suffers
         </h3>
         <hr>
         <div class="course-col">
@@ -34,7 +35,7 @@
               <% active_class = (@room == private) ? 'active' : '' %>
               <div class="card no-outline mb-2 private-card <%= active_class %>">
                 <div class="card-body">
-                  <span class='name'><%= private.admin_id2 %></span><br>
+                  <span class='name'><%= current_admin.id == private.admin_id1 ? private.admin_name2 : private.admin_name1 %></span><br>
                   <span class='member-count'>
 
                   </span>
@@ -44,15 +45,6 @@
           <% end %>
         </div>
       </div>
-      <div>
-        <h3 class="p-2 mt-3">
-            Events
-        </h3>
-        <hr>
-        <div class="course-col">
-          
-        </div>
-      </div>
     </div>
     
     <div class="col-9">
@@ -60,7 +52,7 @@
         <div class="chat-room">
           <nav class="navbar navbar-light">
             <span class="navbar-brand" href="#">
-              <b><%= @private.admin_id1 %></b>
+              <b><%= current_admin.id == @private.admin_id1 ? @private.admin_name2 : @private.admin_name1 %></b>
             </span>
            
           </nav>
@@ -79,7 +71,3 @@
   </div>
 </div>
 <p id="notice"><%= notice %></p>
-
-
-<%= link_to 'Edit', edit_private_path(@private) %> |
-<%= link_to 'Back', privates_path %>
