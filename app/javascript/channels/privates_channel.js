@@ -24,7 +24,7 @@ consumer.subscriptions.create({ channel: "PrivatesChannel", privates_room_id: pr
       html = data.theirs
     }
   
-    const messageContainer = document.getElementById('messages')
+    const messageContainer = document.getElementById('private_messages')
     messageContainer.innerHTML = messageContainer.innerHTML + html
   },
 
