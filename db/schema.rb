@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_004142) do
+ActiveRecord::Schema.define(version: 2021_12_03_220814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
     t.index ["admin_id"], name: "index_enrollments_on_admin_id"
     t.index ["room_id"], name: "index_enrollments_on_room_id"
   end
-  
+
   create_table "event_messages", force: :cascade do |t|
     t.text "content"
     t.integer "admin_id"
@@ -56,17 +56,12 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
   create_table "events", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "room_id"
     t.string "title"
     t.date "event_date"
     t.datetime "event_start"
     t.datetime "event_end"
+    t.integer "room_id"
     t.index ["room_id"], name: "index_events_on_room_id"
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -89,7 +84,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
     t.index ["admin_id"], name: "index_posts_on_admin_id"
     t.index ["room_id"], name: "index_posts_on_room_id"
   end
-  
+
   create_table "private_messages", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -99,10 +94,10 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
   end
 
   create_table "privates", force: :cascade do |t|
+    t.integer "admin_id1"
+    t.integer "admin_id2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "admin_id1"
-    t.string "admin_id2"
     t.string "admin_name1"
     t.string "admin_name2"
   end
@@ -113,12 +108,13 @@ ActiveRecord::Schema.define(version: 2021_12_03_004142) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "posts", "admins"
-  add_foreign_key "posts", "rooms"
-  add_foreign_key "private_messages", "admins"
-  add_foreign_key "private_messages", "privates"
   add_foreign_key "attendances", "admins"
   add_foreign_key "attendances", "events"
   add_foreign_key "event_messages", "admins"
   add_foreign_key "event_messages", "events"
+  add_foreign_key "events", "rooms"
+  add_foreign_key "posts", "admins"
+  add_foreign_key "posts", "rooms"
+  add_foreign_key "private_messages", "admins"
+  add_foreign_key "private_messages", "privates"
 end
