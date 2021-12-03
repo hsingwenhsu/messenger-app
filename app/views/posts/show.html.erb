@@ -54,8 +54,8 @@
     
     <div class="col-9">
       <h1><%= @post.title %></h1>
-      <p><%= Admin.find(@post.admin_id).full_name %></p>
-      <%= link_to 'Chat with the author', '/' %>
+      <p>Chat with the author:</p>
+      <%= render 'privates/form', private: Private.new, admin1: Admin.find(@post.admin_id), admin2: current_admin %>
       <hr>
       <p><%= @post.content %></p>
 
