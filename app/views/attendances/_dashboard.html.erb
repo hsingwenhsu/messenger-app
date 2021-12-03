@@ -1,0 +1,26 @@
+
+<% Attendance.all.each do |attendance| %>
+    <% if attendance.admin_id==current_admin.id%>
+        <div class="col-4 p-2">
+        <div class="card card-enrollment" style="border:none">
+          <div class="p-3 ">
+            <h3 class="mb-3">
+              <%= link_to Event.find(attendance.event_id).title, Event.find(attendance.event_id) , class: 'room-link room-card'%>
+            </h3>
+            <button class="btn btn-outline-primary">
+              <%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["delete_attendance"+attendance.event_id.to_s]%>
+            </button>
+            <button class="btn btn-outline-primary">
+              <%= link_to 'Edit', edit_attendance_path(attendance)  %>
+            </button>
+            <button class="btn btn-outline-primary">
+              <%= link_to 'Show', attendance, :id=>["show_attendance"+attendance.id.to_s] %>
+            </button>
+            
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
+<% end %>
+

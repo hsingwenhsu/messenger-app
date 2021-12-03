@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :private_messages
   resources :privates
+  resources :attendances
+  resources :event_messages
   resources :events
   root to: 'dashboards#show'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
@@ -18,5 +20,5 @@ Rails.application.routes.draw do
   #resources :users
   resources :enrollments
   #root 'users#index'
-
+  get "/events/createform", to: "events#createform"
 end
