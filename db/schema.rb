@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_010039) do
+ActiveRecord::Schema.define(version: 2021_12_02_000818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,27 @@ ActiveRecord::Schema.define(version: 2021_11_18_010039) do
     t.index ["room_id"], name: "index_enrollments_on_room_id"
   end
 
+  create_table "event_messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "admin_id"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_event_messages_on_admin_id"
+    t.index ["event_id"], name: "index_event_messages_on_event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id"
+    t.string "title"
+    t.date "event_date"
+    t.datetime "event_start"
+    t.datetime "event_end"
+    t.index ["room_id"], name: "index_events_on_room_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.integer "room_id"
@@ -50,4 +71,6 @@ ActiveRecord::Schema.define(version: 2021_11_18_010039) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "event_messages", "admins"
+  add_foreign_key "event_messages", "events"
 end

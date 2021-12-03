@@ -1,0 +1,12 @@
+<div class="message mb-2 <%= 'me' if event_message.admin == current_admin %>">
+  
+  <div class="content-container">
+    <div class="content">
+      <%= event_message.content %>
+    </div>
+    <div class="author">
+      <%= event_message.admin.full_name%>
+      <%= link_to 'Delete' , event_message, method: :delete, data: {confirm: 'Delete message?'}, id: event_message.id%>
+    </div>
+  </div>
+</div>

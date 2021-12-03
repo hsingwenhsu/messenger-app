@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
     <div class="container-fluid">
     <h1 class="navbar-left white-font">
-        Suffer Together!
+        <%= link_to "Suffer Together", '/rooms' %>
     </h1>
     
         
@@ -47,8 +47,32 @@
         </h3>
         <hr>
         <div class="course-col">
+          <div class="event-createbox">
+            <h4>Create Event</h4>
+            <%= render 'events/form', event: Event.new, room: @room %>
+          </div>
+          <hr>
+          <div class="event-list">
+            <h4>Event List</h4>
+            <div class="events">
+              <% @room.events.each do |event| %>
+                <%= link_to event, class: 'room-link-sidebar' do %>
+                  <% active_class = (@event == event) ? 'active' : '' %>
+                  <div class="card no-outline mb-2 room-card <%= active_class %>">
+                    <div class="card-body">
+                      <span class='name'><%= event.title %></span><br>
+                      <span class='member-count'>
+
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
           
+          </div>
         </div>
+        
       </div>
     </div>
     

@@ -36,6 +36,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'redis'
 
+gem 'jquery-rails'
+gem 'bootstrap'
+gem 'momentjs-rails'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'bootstrap-datepicker-rails'
 # for icon in view
 # gem 'material_icons'
 # gem 'materialize-sass'

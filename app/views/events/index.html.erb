@@ -1,6 +1,50 @@
 <p id="notice"><%= notice %></p>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
+    <div class="container-fluid">
+    <h1 class="navbar-left white-font">
+        Suffer Together!
+    </h1>
+    
+        
+    <div class="navbar-right"> 
+        <h6 style="margin-right: 30px;color:white">
+        Who is suffering?  &nbsp
+        <%= link_to current_admin.full_name, '/enrollments', id: 'link_to_enrollment' %>
+        </h6>
+        <h6><%= link_to "Click here to give up. Hehehe", destroy_admin_session_path %> </h6> 
+        <h6><%= link_to "View Rooms", '/rooms' %> </h6> 
+    </div>
+    </div>
+</nav>
 
-<h1>Events</h1>
+<div class="container">
+  <div id="event-id" data-event-id="<%= @event.try(:id) %>"></div>
+  <div id="admin-id" data-admin-id="<%= current_admin.id %>"></div>
+  <div class="row">
+    <div class="col">
+      <%if @event.present? %>
+        <div class="chat-room">
+          <nav class="navbar navbar-light">
+            <span class="navbar-brand" href="#">
+              <b><%= @event.title %></b>
+            </span>
+          </nav>
+          <div id="messages" >
+            <% @event.messages.each do |message| %>
+              <%= render 'messages/message', message: message %>
+            <% end %>
+          </div>
+          <div class="chat-box">
+            <%= render 'messages/form', message: Message.new, room: @room %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container event-container">
+  <h1>Events</h1>
 
 <table>
   <thead>
@@ -8,9 +52,15 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% @events.each do |event| %>
+      <tr>
+        <td>Title: <%= event.title%></td>
+        <td>Room ID: <%= event.room_id%></td>
+        <td>Start Time: <%= event.event_start%></td>
+        <td>End Time: <%= event.event_end%></td>
+      </tr>
       <tr>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
@@ -23,3 +73,7 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+</div>
+
+
+

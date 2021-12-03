@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="padding: 20px"> 
     <div class="container-fluid">
     <h1 class="navbar-left white-font">
-        Enrollment
+        <%= link_to "Suffer Together", '/rooms' %>
     </h1>
     
         
@@ -15,9 +15,17 @@
     </div>
     </div>
 </nav>
-
+<div class="container bg-dark" style="margin-top:30px;border-top-left-radius:5px;border-top-right-radius:5px;">
+  <div class="enrollment-title-div" style="border-top-left-radius:10px;border-top-right-radius:10px">
+      <h1>Enrollments</h1>
+  </div>
+</div>
 
 <div class="container container-dashboard bg-light">
+  
+  
+  
+
   <div class="row mb-3">
   <% @enrollments.each do |enrollment| %>
   <% if enrollment.admin_id==current_admin.id%>

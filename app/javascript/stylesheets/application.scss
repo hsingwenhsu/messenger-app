@@ -235,9 +235,13 @@ body {
 }
 
 // style for user dashboard (courses)
+.enrollment-title-div {
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
 .container-dashboard {
-  border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 0px;
   height: 100vh;
   padding: 20px;
 }
@@ -254,4 +258,24 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   height: 300px;
+}
+
+
+
+
+// style for events
+.event-container {
+  display: flex;
+}
+
+.event-createbox {
+  justify-content: center;
+}
+
+#event-create {
+  width: 100%;
+}
+
+a:link {
+  color: white;
 }
