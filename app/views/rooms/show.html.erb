@@ -50,6 +50,28 @@
           
         </div>
       </div>
+      <div>
+        <h3 class="p-2 mt-3">
+          Posts
+        </h3>
+        <hr>
+        <div class="course-col">
+          <div class="post-createbox">
+            <%= link_to 'Create Post', new_room_post_path(@room), class: 'room-link-sidebar' %>
+          </div>
+          <hr>
+          <% @room.posts.each do |post| %>
+            <%= link_to room_post_path(@room, post), class: 'room-link-sidebar' do %>
+              <% active_class = (@post == post) ? 'active' : '' %>
+              <div class="card no-outline mb-2 room-card <%= active_class %>">
+                <div class="card-body">
+                  <span class="name"><%= post.title %></span><br>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
     
     <div class="col-9">

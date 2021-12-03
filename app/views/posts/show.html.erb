@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @post.title %></h1>
+<p><%= Admin.find(@post.admin_id).full_name %></p>
+<%= link_to 'Chat with the author', '/' %>
+<hr>
+<p><%= @post.content %></p>
+
 <%= link_to 'Edit', edit_room_post_path(params[:room_id], @post) %> |
-<%= link_to 'Back', room_posts_path %>
+<%= link_to 'Back', room_path(params[:room_id]) %>

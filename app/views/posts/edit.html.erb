@@ -3,4 +3,4 @@
 <%= render 'form', post: @post, url: room_post_path(params[:room_id], @post) %>
 
 <%= link_to 'Show', edit_room_post_path(params[:room_id], @post) %> |
-<%= link_to 'Back', room_posts_path %>
+<%= link_to 'Back', room_path(params[:room_id]) %>
