@@ -25,16 +25,17 @@ class AttendancesController < ApplicationController
   # POST /attendances.json
   def create
     @attendance = Attendance.new(attendance_params)
-
-    respond_to do |format|
-      if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance }
-      else
-        format.html { render :new }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
-    end
+    @attendance.save
+    redirect_to '/enrollments'
+    # respond_to do |format|
+    #   if @attendance.save
+    #     format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
+    #     format.json { render :show, status: :created, location: @attendance }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @attendance.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /attendances/1
