@@ -48,15 +48,19 @@
               </div>
             <% end %>
           <% end %>
+          
         </div>
       </div>
     </div>
     
     <div class="col-9">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light br-1 pt-3 mt-3">
       <h1>New Post</h1>
+      </nav>
+      <hr>
       <%= render 'form', post: @post, url: room_posts_path %>
 
-      <%= link_to 'Back', room_posts_path(@room) %>
+      
     </div>
   </div>
 </div>

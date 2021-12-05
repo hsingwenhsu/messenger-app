@@ -54,7 +54,38 @@
     
     <div class="col-9">
       <h1>
+        <nav class="navbar nav-dark pt-4">
         There are <%= @room.posts.count %> post(s) in "<%= @room.name %>".
+        </nav>
+        <hr>
+        <% @room.posts.each do |post| %>
+            <%= link_to room_post_path(@room, post), class: 'room-link-sidebar' do %>
+              <% active_class = (@post == post) ? 'active' : '' %>
+              <div class="post-card card text-white card-has-bg click-col">  
+                  <div class="card-img-overlay d-flex flex-column">
+                    <div class="card-body">
+                      <h1 class="card-meta"><%= post.title %></h1>
+                      <small><i class="far fa-clock"></i><%= post.created_at %></small>
+                    </div>
+                    <div class="card-footer">
+                      <div class="media">
+                      
+                      <div class="media-body container" >
+                        <div class="row" style="display:flex">
+                         
+                          <img class="mr-10 rounded-circle" src="https://cdn4.iconfinder.com/data/icons/emoji-18/61/20-256.png" alt="Generic placeholder image" style="max-width:70px">
+                          <h2 class="ml-3 mt-3 my-0 text-white d-block"><%= Admin.find(post.admin_id).full_name %></h2>
+                          
+                        </div>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
       </h1>
     </div>
   </div>
