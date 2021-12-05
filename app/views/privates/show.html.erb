@@ -26,13 +26,13 @@
     <div class="col-3 bg-light">
       <div>
         <h3 class="p-2 mt-3">
-          Suffers
+          Sufferers
         </h3>
         <hr>
         <div class="course-col">
           <% @privates.each do |private| %>
             <%= link_to private, class: 'room-link-sidebar' do %>
-              <% active_class = (@room == private) ? 'active' : '' %>
+              <% active_class = (@private == private) ? 'active' : '' %>
               <div class="card no-outline mb-2 room-card <%= active_class %>">
                 <div class="card-body">
                   <span class='name'><%= current_admin.id == private.admin_id1 ? private.admin_name2 : private.admin_name1 %></span><br>
