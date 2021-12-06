@@ -1,10 +1,10 @@
 class Room < ApplicationRecord
-  has_many :messages
+  has_many :messages, dependent: :delete_all
   has_many :admins
   has_many :posts, -> { order 'updated_at desc' }, dependent: :delete_all
-  has_many :events
-  has_many :admins, through: :messages # test for google user
-  has_many :admins, through: :enrollments
+  has_many :events, dependent: :delete_all
+  has_many :admins, through: :messages, dependent: :delete_all # test for google user
+  has_many :admins, through: :enrollments, dependent: :delete_all
   
   def self.search(search)
     if search.blank?

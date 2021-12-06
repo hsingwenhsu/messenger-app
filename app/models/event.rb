@@ -3,5 +3,5 @@ class Event < ApplicationRecord
     has_many :admins
     belongs_to :room
     has_many :admins, through: :event_messages
-    has_many :admins, through: :attendances
+    has_many :admins, through: :attendances, dependent: :delete_all
 end
