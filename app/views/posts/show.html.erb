@@ -59,7 +59,9 @@
           <h1 class="card-meta"><%= @post.title %></h1>
           
           <small><i class="far fa-clock"></i><%= @post.created_at %></small>
+          <% if @post.admin_id==current_admin.id%>
           <%= link_to 'Edit', edit_room_post_path(@room, @post) %> |
+          <% end %>
           <%= link_to 'Back', room_posts_path(@room) %> |
           <%= link_to 'Destroy', room_post_path(@room, @post), method: :delete, data: { confirm: 'Are you sure?' } %>
           <small><i class="far fa-clock">Author</i><%= render 'privates/form', private: Private.new, admin1: Admin.find(@post.admin_id), admin2: current_admin %></small>
