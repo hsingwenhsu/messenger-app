@@ -36,7 +36,7 @@
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">Course: <%= link_to Room.find(event.room_id).name, Room.find(event.room_id) %></li>
                     <li class="list-group-item">Date: <%= event.event_date %></li>
-                    <li class="list-group-item">Date: <%= event.inspect%></li>
+                    <li class="list-group-item">Time: <%= event.event_start.strftime('%H:%M') %>-<%= event.event_end.strftime('%H:%M')%></li>
                     
                   </ul>
                 </p>
