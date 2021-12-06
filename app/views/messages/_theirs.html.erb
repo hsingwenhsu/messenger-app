@@ -4,7 +4,7 @@
       <%= message.content %>
     </div>
     <div class="author">
-      <%= render 'privates/form', private: Private.new, admin1: message.admin, admin2: current_admin %>
+      <%= message.admin.full_name %>
     </div>
   </div>
 </div>
