@@ -19,6 +19,7 @@
 <div class="container container-room-page">
 
 <div class="container-search">
+  <h3>Search for courses</h3>
   <%= form_with(url: '/rooms', method: 'get', local: true, class:"input-group rounded search-bar mb-3") do%>
     <div style="display:flex;" class="input-group rounded search-bar mb-3">
         <%= text_field_tag :search, nil, class:'form-control rounded'%>

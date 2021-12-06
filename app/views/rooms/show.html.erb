@@ -75,9 +75,8 @@
                   <div class="card no-outline mb-2 room-card <%= active_class %>">
                     <div class="card-body">
                       <span class='name'><%= event.title %></span><br>
-                      <span class='member-count'>
-
-                      </span>
+                      <span><%= event.event_date %></span>
+                      <span><%= event.event_start.strftime('%H:%M') %>-<%= event.event_end.strftime('%H:%M')%></span>
                     </div>
                   </div>
                 <% end %>
