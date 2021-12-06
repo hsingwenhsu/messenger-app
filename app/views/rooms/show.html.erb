@@ -101,8 +101,7 @@
               </span>
             </div>
             <div class="navbar-right">
-              <b style="color:gray;"><%= link_to 'Edit', edit_room_path(@room) %> </b>
-              
+              <%= render 'enrollments/form', enrollment: Enrollment.new, room: @room %>
             </div>
            
           </nav>
