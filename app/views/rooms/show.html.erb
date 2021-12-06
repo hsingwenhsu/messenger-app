@@ -47,12 +47,6 @@
       
       <hr>
 
-      <%= link_to room_posts_path(@room), class: 'room-link-sidebar' do %>
-        <div class="btn btn-primary btn-block">
-          View Posts
-        </div>
-      <% end %>
-
       <hr>
 
       <div>
@@ -101,6 +95,11 @@
             </div>
             <div class="navbar-right">
               <%= render 'enrollments/form', enrollment: Enrollment.new, room: @room %>
+              <%= link_to room_posts_path(@room), class: 'room-link-sidebar' do %>
+                <div class="btn btn-primary btn-block">
+                  View Posts
+                </div>
+              <% end %>
             </div>
            
           </nav>
