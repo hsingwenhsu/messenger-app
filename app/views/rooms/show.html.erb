@@ -26,7 +26,8 @@
         </h3>
         <hr>
         <div class="course-col">
-          <% Enrollment.where(:admin_id==current_admin.id).select(:room_id).distinct.each do |enrollment| %>
+          <% Enrollment.all.each do |enrollment| %>
+            <% if enrollment.admin_id==current_admin.id%>
             <%= link_to Room.find(enrollment.room_id), class: 'room-link-sidebar' do %>
             <% active_class = (@room == Room.find(enrollment.room_id)) ? 'active' : '' %>
               <div class="card no-outline mb-2 room-card <%= active_class %>">
@@ -37,6 +38,7 @@
                   </span>
                 </div>
               </div>
+              <% end%>
               <% end%>
           <% end%>
           
