@@ -2,7 +2,7 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     #It’s called after the user selects their Google account.
     helper_method :google_oauth2
     helper_method :google_user
-    
+    Dotenv.load 
     def google_oauth2
       admin = Admin.from_google(from_google_params)
       if admin.present?
