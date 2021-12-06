@@ -38,4 +38,4 @@ test:
 production:
   <<: *default
   # database: db/production.sqlite3
-  database: production
+  database: <%= ENV['DATABASE_URL'] %>
