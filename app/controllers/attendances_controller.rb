@@ -40,17 +40,17 @@ class AttendancesController < ApplicationController
 
   # PATCH/PUT /attendances/1
   # PATCH/PUT /attendances/1.json
-  def update
-    respond_to do |format|
-      if @attendance.update(attendance_params)
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance }
-      else
-        format.html { render :edit }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @attendance.update(attendance_params)
+  #       format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @attendance }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @attendance.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /attendances/1
   # DELETE /attendances/1.json
