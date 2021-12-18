@@ -66,9 +66,7 @@ When('I clicked View Posts') do
 
   Then('I should not see test_after_change anymore') do
     page.should have_no_content("test_after_change")
-    puts page.body
     url = URI.parse(current_url)
-    puts url
   end
 
   When('I clicked back to room') do
