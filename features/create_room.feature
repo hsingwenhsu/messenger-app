@@ -7,7 +7,7 @@ And I clicked Add
 Then I should enter the chat room with new_room
 And I should see new_room on the page
 Given I am on the room page
-When I clicked edit new_room
+When I clicked go to edit new_room link
 Then I should enter edit page
 When I renamed the room to be 1122
 And I clicked Add

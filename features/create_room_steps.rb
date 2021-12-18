@@ -5,7 +5,11 @@ end
 And('I have logged in') do
   admin = Admin.create!(:uid => "111101028321893", :email => 'hfuhroi@columbia.edu', :full_name => 'Test')
   login_as(admin, :scope => :admin)
+  
   visit '/rooms'
+  #put page.body
+  # page.should have_content("Submit")
+
 end
 
 When('I typed new_room inside add room section') do
@@ -15,11 +19,13 @@ end
 And ('I clicked Add') do
     # Write code here that turns the phrase above into concrete actions
     click_button('new_room_submit')
+    #put page.body
   end
 
 Then('I should enter the chat room with new_room') do
-    visit '/rooms/1'
+    #visit '/rooms/1'
      # Write code here that turns the phrase above into concrete actions
+     #puts page.body
 end
 
 Then('I should see new_room on the page') do
@@ -27,8 +33,10 @@ Then('I should see new_room on the page') do
      # Write code here that turns the phrase above into concrete actions
 end
 
-When('I clicked edit new_room') do
-  click_link('edit_room1') # Write code here that turns the phrase above into concrete actions
+When('I clicked go to edit new_room link') do
+  visit '/rooms/1/edit'
+  put page.body
+  #click_link('edit_room1') # Write code here that turns the phrase above into concrete actions
 end
 
 Then('I should enter edit page') do
