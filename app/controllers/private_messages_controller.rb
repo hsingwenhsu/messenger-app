@@ -13,9 +13,9 @@ class PrivateMessagesController < ApplicationController
   end
 
   # GET /private_messages/new
-  def new
-    @private_message = PrivateMessage.new
-  end
+  # def new
+  #   @private_message = PrivateMessage.new
+  # end
 
   # GET /private_messages/1/edit
   def edit
@@ -49,27 +49,27 @@ class PrivateMessagesController < ApplicationController
 
   # PATCH/PUT /private_messages/1
   # PATCH/PUT /private_messages/1.json
-  def update
-    respond_to do |format|
-      if @private_message.update(private_message_params)
-        format.html { redirect_to @private_message, notice: 'Private message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @private_message }
-      else
-        format.html { render :edit }
-        format.json { render json: @private_message.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @private_message.update(private_message_params)
+  #       format.html { redirect_to @private_message, notice: 'Private message was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @private_message }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @private_message.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /private_messages/1
   # DELETE /private_messages/1.json
-  def destroy
-    @private_message.destroy
-    respond_to do |format|
-      format.html { redirect_to private_messages_url, notice: 'Private message was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @private_message.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to private_messages_url, notice: 'Private message was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

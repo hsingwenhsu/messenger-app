@@ -17,17 +17,42 @@ RSpec.describe "/posts", type: :request do
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    # skip("Add a hash of attributes valid for your model")
+    {
+      :admin_id => @admin.id,
+      :room_id => @room.id,
+      :title => 'Please extend the deadline!!!',
+      :content => 'As title :((('
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    # skip("Add a hash of attributes invalid for your model")
+    {
+      :admin_id => @admin.id + 1,
+      :room_id => @room.id + 1,
+      :title => 'Please extend the deadline!!!',
+      :content => 'As title :((('
+    }
   }
+
+  before(:each) do
+    @admin = Admin.create!({
+      :email => 'test@columbia.edu',
+      :full_name => 'test',
+      :uid => '',
+      :avatar_url => ''
+    })
+    @room = Room.create!({
+      :name => 'ESaaS'
+    })
+    login_as(@admin, :scope => :admin)
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
       Post.create! valid_attributes
-      get posts_url
+      get room_posts_url(@room)
       expect(response).to be_successful
     end
   end
@@ -35,14 +60,14 @@ RSpec.describe "/posts", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       post = Post.create! valid_attributes
-      get post_url(post)
+      get room_post_url(@room, post)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_post_url
+      get new_room_post_url(@room)
       expect(response).to be_successful
     end
   end
@@ -50,7 +75,7 @@ RSpec.describe "/posts", type: :request do
   describe "GET /edit" do
     it "render a successful response" do
       post = Post.create! valid_attributes
-      get edit_post_url(post)
+      get edit_room_post_url(@room, post)
       expect(response).to be_successful
     end
   end
@@ -59,72 +84,80 @@ RSpec.describe "/posts", type: :request do
     context "with valid parameters" do
       it "creates a new Post" do
         expect {
-          post posts_url, params: { post: valid_attributes }
+          post room_posts_url(@room), params: { post: valid_attributes }
         }.to change(Post, :count).by(1)
       end
 
       it "redirects to the created post" do
-        post posts_url, params: { post: valid_attributes }
-        expect(response).to redirect_to(post_url(Post.last))
+        post room_posts_url(@room), params: { post: valid_attributes }
+        expect(response).to redirect_to(room_post_url(@room, Post.last))
       end
     end
 
     context "with invalid parameters" do
       it "does not create a new Post" do
         expect {
-          post posts_url, params: { post: invalid_attributes }
-        }.to change(Post, :count).by(0)
+          post room_posts_url(@room), params: { post: invalid_attributes }
+        }.to raise_error(ActiveRecord::InvalidForeignKey)
       end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post posts_url, params: { post: invalid_attributes }
-        expect(response).to be_successful
-      end
+      # it "renders a successful response (i.e. to display the 'new' template)" do
+      #   post room_posts_url(@room), params: { post: invalid_attributes }
+      #   expect(response).to be_successful
+      # end
     end
   end
 
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        # skip("Add a hash of attributes valid for your model")
+        {
+          :admin_id => @admin.id,
+          :room_id => @room.id,
+          :title => 'Re: Please extend the deadline!!!',
+          :content => 'No way :((('
+        }
       }
 
       it "updates the requested post" do
         post = Post.create! valid_attributes
-        patch post_url(post), params: { post: new_attributes }
+        patch room_post_url(@room, post), params: { post: new_attributes }
         post.reload
-        skip("Add assertions for updated state")
+        # skip("Add assertions for updated state")
+        expect(post.title).to eq('Re: Please extend the deadline!!!')
+        expect(post.content).to eq('No way :(((')
       end
 
       it "redirects to the post" do
         post = Post.create! valid_attributes
-        patch post_url(post), params: { post: new_attributes }
+        patch room_post_url(@room, post), params: { post: new_attributes }
         post.reload
-        expect(response).to redirect_to(post_url(post))
+        expect(response).to redirect_to(room_post_url(@room, post))
       end
     end
 
-    context "with invalid parameters" do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        post = Post.create! valid_attributes
-        patch post_url(post), params: { post: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
+    # context "with invalid parameters" do
+    #   it "renders a successful response (i.e. to display the 'edit' template)" do
+    #     post = Post.create! valid_attributes
+    #     patch room_post_url(@room, post), params: { post: invalid_attributes }
+    #     expect(response).to be_successful
+    #   end
+    # end
   end
 
   describe "DELETE /destroy" do
     it "destroys the requested post" do
       post = Post.create! valid_attributes
       expect {
-        delete post_url(post)
+        delete room_post_url(@room, post)
       }.to change(Post, :count).by(-1)
     end
 
     it "redirects to the posts list" do
       post = Post.create! valid_attributes
-      delete post_url(post)
-      expect(response).to redirect_to(posts_url)
+      delete room_post_url(@room, post)
+      expect(response).to redirect_to(room_posts_url(@room))
     end
   end
 end
