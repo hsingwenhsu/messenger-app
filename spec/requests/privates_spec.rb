@@ -18,11 +18,33 @@ RSpec.describe "/privates", type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
+    {:admin_id1 => @admin1.id, :admin_id2 => @admin2.id}
+
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  before(:each) do
+    @admin1 = Admin.create!({
+      :email => 'test@columbia.edu',
+      :full_name => 'test',
+      :uid => '',
+      :avatar_url => ''
+    })
+    @admin2 = Admin.create!({
+      :email => 'test2@columbia.edu',
+      :full_name => 'test',
+      :uid => '',
+      :avatar_url => ''
+    })
+    @private = Private.create!({
+      :admin_id1 => @admin1.id,
+      :admin_id2 => @admin2.id
+    })
+
+    Capybara.default_host = 'localhost:3000'
+    default_url_options[:host] = 'localhost:3000'
+    login_as(@admin1, :scope => :admin)
+    current_admin = @admin1
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -40,12 +62,12 @@ RSpec.describe "/privates", type: :request do
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
-      get new_private_url
-      expect(response).to be_successful
-    end
-  end
+  # describe "GET /new" do
+  #   it "renders a successful response" do
+  #     get new_private_url
+  #     expect(response).to be_successful
+  #   end
+  # end
 
   describe "GET /edit" do
     it "render a successful response" do
@@ -69,18 +91,18 @@ RSpec.describe "/privates", type: :request do
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Private" do
-        expect {
-          post privates_url, params: { private: invalid_attributes }
-        }.to change(Private, :count).by(0)
-      end
+    # context "with invalid parameters" do
+    #   it "does not create a new Private" do
+    #     expect {
+    #       post privates_url, params: { private: invalid_attributes }
+    #     }.to change(Private, :count).by(0)
+    #   end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post privates_url, params: { private: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
+    #   it "renders a successful response (i.e. to display the 'new' template)" do
+    #     post privates_url, params: { private: invalid_attributes }
+    #     expect(response).to be_successful
+    #   end
+    # end
   end
 
   describe "PATCH /update" do
