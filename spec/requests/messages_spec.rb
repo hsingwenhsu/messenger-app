@@ -93,18 +93,18 @@ RSpec.describe "Messages", type: :request do
     # end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested message" do
-      message = Message.create!(valid_attributes)
-      expect {
-        delete message_url(message)
-      }.to change(Message, :count).by(-1)
-    end
+  # describe "DELETE /destroy" do
+  #   it "destroys the requested message" do
+  #     message = Message.create!(valid_attributes)
+  #     expect {
+  #       delete message_url(message)
+  #     }.to change(Message, :count).by(-1)
+  #   end
 
-    # it "redirects to the messages list" do
-    #   message = Message.create!(valid_attributes)
-    #   delete message_url(message)
-    #   expect(response).to redirect_to(messages_url)
-    # end
-  end
+  #   it "redirects to the messages list" do
+  #     message = Message.create!(valid_attributes)
+  #     delete message_url(message)
+  #     expect(response).to redirect_to(messages_url)
+  #   end
+  # end
 end

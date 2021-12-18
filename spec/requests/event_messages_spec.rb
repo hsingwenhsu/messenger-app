@@ -106,54 +106,54 @@ RSpec.describe "/event_messages", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        # skip("Add a hash of attributes valid for your model")
-        {
-          :admin_id => @admin.id,
-          :event_id => @event.id,
-          :content => 'Hello'
-        }
-      }
+  # describe "PATCH /update" do
+  #   context "with valid parameters" do
+  #     let(:new_attributes) {
+  #       # skip("Add a hash of attributes valid for your model")
+  #       {
+  #         :admin_id => @admin.id,
+  #         :event_id => @event.id,
+  #         :content => 'Hello'
+  #       }
+  #     }
 
-      it "updates the requested event_message" do
-        event_message = EventMessage.create! valid_attributes
-        patch event_message_url(event_message), params: { event_message: new_attributes }
-        event_message.reload
-        # skip("Add assertions for updated state")
-        expect(event_message.content).to eq('Hello')
-      end
+  #     it "updates the requested event_message" do
+  #       event_message = EventMessage.create! valid_attributes
+  #       patch event_message_url(event_message), params: { event_message: new_attributes }
+  #       event_message.reload
+  #       # skip("Add assertions for updated state")
+  #       expect(event_message.content).to eq('Hello')
+  #     end
 
-      # it "redirects to the event_message" do
-      #   event_message = EventMessage.create! valid_attributes
-      #   patch event_message_url(event_message), params: { event_message: new_attributes }
-      #   event_message.reload
-      #   expect(response).to redirect_to(event_message_url(event_message))
-      # end
-    end
+  #     it "redirects to the event_message" do
+  #       event_message = EventMessage.create! valid_attributes
+  #       patch event_message_url(event_message), params: { event_message: new_attributes }
+  #       event_message.reload
+  #       expect(response).to redirect_to(event_message_url(event_message))
+  #     end
+  #   end
 
-    # context "with invalid parameters" do
-    #   it "renders a successful response (i.e. to display the 'edit' template)" do
-    #     event_message = EventMessage.create! valid_attributes
-    #     patch event_message_url(event_message), params: { event_message: invalid_attributes }
-    #     expect(response).to be_successful
-    #   end
-    # end
-  end
+  #   context "with invalid parameters" do
+  #     it "renders a successful response (i.e. to display the 'edit' template)" do
+  #       event_message = EventMessage.create! valid_attributes
+  #       patch event_message_url(event_message), params: { event_message: invalid_attributes }
+  #       expect(response).to be_successful
+  #     end
+  #   end
+  # end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested event_message" do
-      event_message = EventMessage.create! valid_attributes
-      expect {
-        delete event_message_url(event_message)
-      }.to change(EventMessage, :count).by(-1)
-    end
+  # describe "DELETE /destroy" do
+  #   it "destroys the requested event_message" do
+  #     event_message = EventMessage.create! valid_attributes
+  #     expect {
+  #       delete event_message_url(event_message)
+  #     }.to change(EventMessage, :count).by(-1)
+  #   end
 
-    it "redirects to the event_messages list" do
-      event_message = EventMessage.create! valid_attributes
-      delete event_message_url(event_message)
-      expect(response).to redirect_to(event_messages_url)
-    end
-  end
+  #   it "redirects to the event_messages list" do
+  #     event_message = EventMessage.create! valid_attributes
+  #     delete event_message_url(event_message)
+  #     expect(response).to redirect_to(event_messages_url)
+  #   end
+  # end
 end
