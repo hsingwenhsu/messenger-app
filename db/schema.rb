@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_015728) do
   end
 
   add_foreign_key "attendances", "admins"
-  add_foreign_key "attendances", "events"
+  add_foreign_key "attendances", "events", on_delete: :cascade
   add_foreign_key "event_messages", "admins"
   add_foreign_key "event_messages", "events"
   add_foreign_key "posts", "admins"

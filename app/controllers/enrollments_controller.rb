@@ -42,15 +42,15 @@ class EnrollmentsController < ApplicationController
   # PATCH/PUT /enrollments/1
   # PATCH/PUT /enrollments/1.json
   def update
-    respond_to do |format|
-      if @enrollment.update(enrollment_params)
-        format.html { redirect_to @enrollment, notice: 'Enrollment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @enrollment }
-      else
-        format.html { render :edit }
-        format.json { render json: @enrollment.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @enrollment.update(enrollment_params)
+    #     format.html { redirect_to @enrollment, notice: 'Enrollment was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @enrollment }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @enrollment.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /enrollments/1

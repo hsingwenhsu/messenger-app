@@ -8,7 +8,7 @@
               <%= link_to Event.find(attendance.event_id).title, Event.find(attendance.event_id) , class: 'room-link room-card'%>
             </h3>
             <button class="btn btn-outline-primary">
-              <%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["delete_attendance"+attendance.event_id.to_s]%>
+              <%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["delete_attendance"+attendance.id.to_s]%>
             </button>
             <button class="btn btn-outline-primary">
               <%= link_to 'Edit', edit_attendance_path(attendance)  %>

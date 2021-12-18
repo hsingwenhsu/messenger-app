@@ -23,7 +23,7 @@
   <%= form_with(url: '/rooms', method: 'get', local: true, class:"input-group rounded search-bar mb-3") do%>
     <div style="display:flex;" class="input-group rounded search-bar mb-3">
         <%= text_field_tag :search, nil, class:'form-control rounded'%>
-        <%= submit_tag "Search", class:"btn btn-primary" %>
+        <%= submit_tag "Search", class:"btn btn-primary", id: 'submit-search' %>
     </div>
   <% end %>
 </div>

@@ -37,9 +37,6 @@
               <%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, :id=>["delete_enrollment"+enrollment.room_id.to_s]%>
             </button>
             <button class="btn btn-outline-primary">
-              <%= link_to 'Edit', edit_enrollment_path(enrollment)  %>
-            </button>
-            <button class="btn btn-outline-primary">
               <%= link_to 'Show', enrollment, :id=>["show_enrollment"+enrollment.id.to_s] %>
             </button>
             
@@ -55,7 +52,7 @@
     </div>
     
   </div>
-  <%= render 'attendances/dashboard'%>
+  <%= render 'attendances/dashboard' %>
   
 </div>
 
