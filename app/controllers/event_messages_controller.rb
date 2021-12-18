@@ -33,25 +33,25 @@ class EventMessagesController < ApplicationController
   # PATCH/PUT /event_messages/1
   # PATCH/PUT /event_messages/1.json
   def update
-    respond_to do |format|
-      if @event_message.update(event_message_params)
-        format.html { redirect_to @event_message, notice: 'Event message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event_message }
-      else
-        format.html { render :edit }
-        format.json { render json: @event_message.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+      # if @event_message.update(event_message_params)
+      #   format.html { redirect_to @event_message, notice: 'Event message was successfully updated.' }
+      #   format.json { render :show, status: :ok, location: @event_message }
+      # else
+      #   format.html { render :edit }
+      #   format.json { render json: @event_message.errors, status: :unprocessable_entity }
+      # end
+    # end
   end
 
   # DELETE /event_messages/1
   # DELETE /event_messages/1.json
   def destroy
-    @event_message.destroy
-    respond_to do |format|
-      format.html { redirect_to event_messages_url, notice: 'Event message was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # @event_message.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to event_messages_url, notice: 'Event message was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

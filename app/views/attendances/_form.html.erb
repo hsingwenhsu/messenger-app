@@ -13,8 +13,8 @@
 
 
   <%= form.hidden_field :admin_id, value: current_admin.id %>
-  <%= form.hidden_field :event_id, value: attendance.event_id %>
+  <%= form.hidden_field :event_id, value: event.id %>
   <div class="actions" style="text-align: center; margin: 10px">
-    <%= form.submit "Attend", class: "btn btn-outline-primary", :id=>["create_attendance"+attendance.event_id.to_s]%>
+    <%= form.submit "Attend", class: "btn btn-outline-primary", :id=>["create_attendance"+event.id.to_s]%>
   </div>
 <% end %>
