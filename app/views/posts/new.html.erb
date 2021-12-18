@@ -25,7 +25,7 @@
           Posts in "<%= @room.name %>"
         </h3>
         <hr>
-        <%= link_to room_path(@room), class: 'room-link-sidebar' do %>
+        <%= link_to room_path(@room), class: 'room-link-sidebar',id: 'back-to-room' do %>
           <div class="btn btn-danger btn-block">
             Back to Room
           </div>

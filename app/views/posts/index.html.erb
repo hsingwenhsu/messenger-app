@@ -25,14 +25,14 @@
           Posts in "<%= @room.name %>"
         </h3>
         <hr>
-        <%= link_to room_path(@room), class: 'room-link-sidebar' do %>
+        <%= link_to room_path(@room), class: 'room-link-sidebar', id: 'back-to-room' do %>
           <div class="btn btn-danger btn-block">
             Back to Room
           </div>
         <% end %>
         <br>
-        <%= link_to new_room_post_path(@room), class: 'room-link-sidebar' do %>
-          <div class="btn btn-primary btn-block">
+        <%= link_to new_room_post_path(@room), class: 'room-link-sidebar', id:"create_new_post" do %>
+          <div class="btn btn-primary btn-block" >
             New Post
           </div>
         <% end %>
