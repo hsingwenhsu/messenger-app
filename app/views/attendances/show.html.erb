@@ -21,6 +21,6 @@
     <h4>Event: <%= Event.find(@attendance.event_id).title %></h4>
     
     <%= link_to 'Edit', edit_attendance_path(@attendance) %> |
-    <%= link_to 'Back', attendances_path %>
+    <%= link_to 'Back', attendances_path, id:'back-to-enrollments' %>
 </div>
 
