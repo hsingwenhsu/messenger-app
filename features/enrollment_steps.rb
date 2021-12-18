@@ -24,7 +24,8 @@ end
 
 When('I clicked show for the enrollment') do 
   eid = page.body.match(/show_enrollment([^\/.]*)" /)
-  click_link('show_enrollment'+eid)
+  puts eid[1]
+  click_link('show_enrollment'+eid[1])
 end
 
 Then('I should see the enrollment information') do
@@ -36,7 +37,9 @@ Then('I go back to the enrollment page') do
 end
 
 When('I clicked destroy') do
-  click_link('delete_enrollment'+@rid);
+  eid = page.body.match(/delete_enrollment([^\/.]*)" r/)
+  puts eid[1]
+  click_link('delete_enrollment'+eid[1])
 end
 
 Then('I should not see the room') do
