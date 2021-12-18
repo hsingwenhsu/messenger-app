@@ -17,9 +17,9 @@ Then ('I fill out information of the event') do
     fill_in 'event-end', :with => '15:00'
 end
 
-Then ('I clicked submit to create the event') do
-    click_button('event-create');
-end
+# Then ('I clicked submit to create the event') do
+#     click_button('event-create');
+# end
 
 Then ('I should be on the page of the event') do
     page.should have_content('esaas')
