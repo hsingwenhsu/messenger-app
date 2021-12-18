@@ -25,13 +25,10 @@ class PrivateMessagesController < ApplicationController
   # POST /private_messages.json
   def create
     @private_message = PrivateMessage.new(private_message_params)
-    puts 'private_message params'
-    puts private_message_params
-    puts @private_message
     # @private_message.user = current_user
     @private_message.admin = current_admin
     @private_message.save
-
+    
     SendPrivateMessageJob.perform_later(@private_message)
   end
   #   @private_message = PrivateMessage.new(private_message_params)
