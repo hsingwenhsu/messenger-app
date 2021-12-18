@@ -16,7 +16,7 @@ When('I clicked view event') do
   end
 
   Then('After I clicked attend event') do
-    puts page.body
+    #puts page.body
     click_button("create_attendance"+$event_id)
     eid = page.body.match(/show_attendance([^\/.]*)" /)
     $attend_id = eid[1]
