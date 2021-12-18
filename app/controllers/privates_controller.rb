@@ -38,9 +38,9 @@ class PrivatesController < ApplicationController
       if @private.save
         format.html { redirect_to @private, notice: 'Private was successfully created.' }
         format.json { render :show, status: :created, location: @private }
-      else
-        format.html { render :new }
-        format.json { render json: @private.errors, status: :unprocessable_entity }
+      # else
+      #   format.html { render :new }
+      #   format.json { render json: @private.errors, status: :unprocessable_entity }
       end
     end
   end
