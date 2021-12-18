@@ -93,8 +93,8 @@
             </div>
             <div class="navbar-right" style="text-align:center">
               <%= render 'enrollments/form', enrollment: Enrollment.new, room: @room %>
-              <%= link_to room_posts_path(@room), class: 'room-link-sidebar' do %>
-                <div class="btn btn-primary btn-block">
+              <%= link_to room_posts_path(@room), class: 'room-link-sidebar', id:"view_posts" do %>
+                <div class="btn btn-primary btn-block" >
                   View Posts
                 </div>
               <% end %>

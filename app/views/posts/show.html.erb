@@ -25,7 +25,7 @@
           Posts in "<%= @room.name %>"
         </h3>
         <hr>
-        <%= link_to room_path(@room), class: 'room-link-sidebar' do %>
+        <%= link_to room_path(@room), class: 'room-link-sidebar', id: 'back-to-room' do %>
           <div class="btn btn-danger btn-block">
             Back to Room
           </div>
@@ -39,7 +39,7 @@
         <hr>
         <div class="course-col">
           <% @room.posts.each do |post| %>
-            <%= link_to room_post_path(@room, post), class: 'room-link-sidebar' do %>
+            <%= link_to room_post_path(@room, post), class: 'room-link-sidebar', :id=>"post_id"+post.id.to_s do %>
               <% active_class = (@post == post) ? 'active' : '' %>
               <div class="card no-outline mb-2 room-card <%= active_class %>">
                 <div class="card-body">
@@ -60,11 +60,14 @@
           
           <small><i class="far fa-clock"></i><%= @post.created_at %></small>
           <% if @post.admin_id==current_admin.id%>
-          <%= link_to 'Edit', edit_room_post_path(@room, @post) %> |
+          <%= link_to 'Edit', edit_room_post_path(@room, @post), id:'edit_post' %> |
           <% end %>
           <%= link_to 'Back', room_posts_path(@room) %> |
-          <%= link_to 'Destroy', room_post_path(@room, @post), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <small><i class="far fa-clock">Author</i><%= render 'privates/form', private: Private.new, admin1: Admin.find(@post.admin_id), admin2: current_admin %></small>
+          <%= link_to 'Destroy', room_post_path(@room, @post), method: :delete, data: { confirm: 'Are you sure?' },  id:'delete_post' %>
+          <small>
+            <i class="far fa-clock">Author</i>
+            <%= render 'privates/form', private: Private.new, admin1: Admin.find(@post.admin_id), admin2: current_admin %>
+          </small>
           <hr>
            <p><%= @post.content %></p> 
         </div>

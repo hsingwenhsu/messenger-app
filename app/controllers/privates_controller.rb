@@ -47,27 +47,27 @@ class PrivatesController < ApplicationController
 
   # PATCH/PUT /privates/1
   # PATCH/PUT /privates/1.json
-  def update
-    respond_to do |format|
-      if @private.update(private_params)
-        format.html { redirect_to @private, notice: 'Private was successfully updated.' }
-        format.json { render :show, status: :ok, location: @private }
-      else
-        format.html { render :edit }
-        format.json { render json: @private.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @private.update(private_params)
+  #       format.html { redirect_to @private, notice: 'Private was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @private }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @private.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /privates/1
   # DELETE /privates/1.json
-  def destroy
-    @private.destroy
-    respond_to do |format|
-      format.html { redirect_to privates_url, notice: 'Private was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @private.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to privates_url, notice: 'Private was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
