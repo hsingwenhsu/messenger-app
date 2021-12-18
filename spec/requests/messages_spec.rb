@@ -12,9 +12,9 @@ RSpec.describe "Messages", type: :request do
     {:content => 'hi', :admin_id => 1, :room_id => 1}
   }
 
-  let(:invalid_attributes) {
-    {:content => 'hi', :admin_id => 1000, :room_id => 1000}
-  }
+  # let(:invalid_attributes) {
+  #   {:content => 'hi', :admin_id => 1000, :room_id => 1000}
+  # }
   let(:new_attributes) {
     {:content => 'hiiiii', :admin_id => 1, :room_id => 1}
   }
@@ -114,18 +114,18 @@ RSpec.describe "Messages", type: :request do
       # end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new message" do
-        expect {
-          post messages_url, params: { message: invalid_attributes }
-        }.to raise_error(ActiveJob::SerializationError)
-      end
+    # context "with invalid parameters" do
+    #   it "does not create a new message" do
+    #     expect {
+    #       post messages_url, params: { message: invalid_attributes }
+    #     }.to raise_error(ActiveJob::SerializationError)
+    #   end
       
-      # it "renders a successful response (i.e. to display the 'new' template)" do
-      #   post messages_url, params: { message: invalid_attributes }
-      #   expect(response).to be_successful
-      # end
-    end
+    #   # it "renders a successful response (i.e. to display the 'new' template)" do
+    #   #   post messages_url, params: { message: invalid_attributes }
+    #   #   expect(response).to be_successful
+    #   # end
+    # end
   end
   
   describe "PATCH /update" do
